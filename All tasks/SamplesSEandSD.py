@@ -26,3 +26,13 @@ data_costs.isnull().any().any()
 data_costs = data_costs.loc[(data_costs != 0)]
 data_costs.shape
 data_costs.head(n=20)
+
+# Build hist
+
+
+plt.figure(figsize=(10, 8), dpi=100)
+plt.hist(data_costs, bins=50, color='tab:green')
+plt.title('Distribution of pig farming costs')
+plt.xlabel('Costs')
+plt.ylabel('Count')
+plt.show()
