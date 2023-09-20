@@ -20,3 +20,9 @@ data_costs.head()
 data_costs.shape
 data_costs.isnull().any().any()
 (data_costs == 0).sum() #Calculate number of zeros
+
+# Delete all rows with zeros value
+
+data_costs = data_costs.loc[(data_costs != 0)]
+data_costs.shape
+data_costs.head(n=20)
