@@ -41,3 +41,20 @@ plt.figure(figsize=(6, 6), dpi=100)
 plt.boxplot(data_costs)
 plt.title('Outliers of pig farming costs', fontsize=20)
 plt.show()
+
+# Apply inter quartile range (IQR) score method
+
+q1 = np.quantile(data_costs, 0.25)
+q3 = np.quantile(data_costs, 0.75)
+med = np.median(data_costs)
+iqr = q3-q1
+upper_bound = q3+(1.5*iqr) 
+lower_bound = q1-(1.5*iqr)
+print(iqr, upper_bound, lower_bound)
+
+outliers = data_costs[(data_costs <= lower_bound) | (data_costs >= upper_bound)]
+print('Outliers:{}'.format(outliers))
+
+data_without_outliers = data_costs[(data_costs <= lower_bound) | (data_costs >= upper_bound)]
+
+data_without_outliers.shape
