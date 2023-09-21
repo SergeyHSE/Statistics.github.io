@@ -70,3 +70,20 @@ plt.title('Distribution of pig farming costs (Without outliers)')
 plt.xlabel('Costs')
 plt.ylabel('Count')
 plt.show()
+
+z = np.abs(stats.zscore(data_costs)) 
+     
+data_Z_score = data_costs[(z<3)]
+data_Z_score.shape
+data_costs.shape
+data_without_outliers.shape
+
+plt.figure(figsize=(6, 6), dpi=100)
+plt.boxplot(data_Z_score)
+plt.title('Pig farming costs without outliers (Z_score)', fontsize=20)
+plt.show()
+
+outlier_result_table = pd.DataFrame([[data_costs.shape[0], data_Z_score.shape[0], data_without_outliers.shape[0]]],
+                                    columns=['Initial data', 'Z-score', 'IQR'])
+outlier_result_table.to_csv('Results_of_outlier_cut.csv')
+
