@@ -101,3 +101,8 @@ outlier_result_table = pd.DataFrame([[data_costs.shape[0], data_Z_score.shape[0]
                                     columns=['Initial data', 'Z-score', 'IQR'])
 outlier_result_table.to_csv('Results_of_outlier_cut.csv')
 
+# quantile method (you shouldn't try this method, because it shows only minimum or maximum of sample)
+quantile = data_Z_score.quantile(0.1)
+data_ranked = data_Z_score[data_Z_score < quantile]
+data_ranked.shape
+data_ranked
