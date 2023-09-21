@@ -106,3 +106,16 @@ quantile = data_Z_score.quantile(0.1)
 data_ranked = data_Z_score[data_Z_score < quantile]
 data_ranked.shape
 data_ranked
+
+# Method of extracting every 6th values from every 10 of sample
+data_Z_score.head()
+data_sort = data_Z_score.sort_values()
+data_sort.head(20)
+data_sort.shape
+total_rows = len(data_sort)
+total_rows
+selected_values = []
+for i in range(0, total_rows, 10):
+    if i + 5 < total_rows:
+        selected_values.append(data_sort.iloc[i + 5])
+
