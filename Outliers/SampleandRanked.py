@@ -58,3 +58,8 @@ print('Outliers:{}'.format(outliers))
 data_without_outliers = data_costs[(data_costs <= lower_bound) | (data_costs >= upper_bound)]
 
 data_without_outliers.shape
+
+plt.figure(figsize=(6, 6), dpi=100)
+plt.boxplot(data_without_outliers)
+plt.title('Pig farming costs without outliers (IQR)', fontsize=20)
+plt.show()
