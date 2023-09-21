@@ -29,10 +29,15 @@ data_costs.head(n=20)
 
 # Build hist
 
-
 plt.figure(figsize=(10, 8), dpi=100)
 plt.hist(data_costs, bins=50, color='tab:green')
 plt.title('Distribution of pig farming costs')
 plt.xlabel('Costs')
 plt.ylabel('Count')
+plt.show()
+
+# Build outliers box
+plt.figure(figsize=(6, 6), dpi=100)
+plt.boxplot(data_costs)
+plt.title('Outliers of pig farming costs', fontsize=20)
 plt.show()
