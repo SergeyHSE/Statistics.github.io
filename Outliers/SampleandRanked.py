@@ -83,6 +83,20 @@ plt.boxplot(data_Z_score)
 plt.title('Pig farming costs without outliers (Z_score)', fontsize=20)
 plt.show()
 
+# Get description
+
+description = data_Z_score.describe()
+description.to_csv('Description.csv')
+print(description)
+
+# Find the directory
+directory = os.getcwd()
+filename = 'Description.csv'
+file_path = os.path.join(directory, filename)
+if os.path.exists(file_path):
+    print(f"The file '{filename}' is located at: {file_path}")
+else:
+    print(f"The file '{filename}' was not found in the current directory")
 outlier_result_table = pd.DataFrame([[data_costs.shape[0], data_Z_score.shape[0], data_without_outliers.shape[0]]],
                                     columns=['Initial data', 'Z-score', 'IQR'])
 outlier_result_table.to_csv('Results_of_outlier_cut.csv')
