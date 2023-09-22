@@ -3,7 +3,8 @@ Created on Sat Sep 16 17:52:43 2023
 
 @author: SergeyHSE
 
-We will compare ranked set sampling and random sampling methods using different tools
+We will compare ranked set sampling and random sampling methods using different tools.
+We are gonna use pig data of pig farming costs
 
 """
 
@@ -19,7 +20,7 @@ path = path.replace('\\', '/')
 
 data = pd.read_excel(path, sheet_name='2')
 data.head()
-data_costs = data['14070']
+data_costs = data['14070'] # Choose column with pig farming costs
 data_costs.head()
 data_costs.shape
 data_costs.isnull().any().any()
