@@ -1,6 +1,10 @@
+"""
 Created on Sat Sep 16 17:52:43 2023
 
 @author: SergeyHSE
+
+We will compare ranked set sampling and random sampling methods using different tools
+
 """
 
 import pandas as pd
@@ -129,3 +133,8 @@ random_description = data_random.describe()
 random_description.to_csv('Random_description.csv')
 ranked_description = data_ranked.describe()
 ranked_description.to_csv('Ranked_description.csv')
+
+#Calculate standart deviation
+std_population = data_Z_score.std()
+std_random = data_random.std()
+std_ranked = data_ranked.std()
