@@ -119,3 +119,13 @@ for i in range(0, total_rows, 10):
     if i + 5 < total_rows:
         selected_values.append(data_sort.iloc[i + 5])
 
+len(selected_values)
+data_ranked = pd.DataFrame({'SelectedValues': selected_values})
+data_ranked.shape
+data_ranked = data_ranked.squeeze()
+data_ranked.shape
+
+random_description = data_random.describe()
+random_description.to_csv('Random_description.csv')
+ranked_description = data_ranked.describe()
+ranked_description.to_csv('Ranked_description.csv')
