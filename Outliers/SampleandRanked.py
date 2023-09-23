@@ -139,3 +139,9 @@ ranked_description.to_csv('Ranked_description.csv')
 std_population = data_Z_score.std()
 std_random = data_random.std()
 std_ranked = data_ranked.std()
+
+#Calculate standart error
+se_random = std_random / np.sqrt(len(data_random))
+se_ranked = std_ranked / np.sqrt(len(data_ranked))
+print(f"se_random: {se_random}")
+print(f"se_ranked: {se_ranked}")
