@@ -160,3 +160,20 @@ confidence_ranked = (ranked_mean - t_value_rank * se_ranked, ranked_mean + t_val
 
 print(f"Confidance interval for random: {confidence_random}")
 print(f"Confidance interval for ranked: {confidence_ranked}")
+
+# Visualize all samples
+plt.figure(figsize=(12, 4), dpi=200)
+plt.subplot(1, 3, 1)
+plt.hist(data_Z_score, bins=50, color='tab:blue', alpha=0.5, label='General population')
+plt.legend()
+plt.title('Hist of General population')
+plt.subplot(1, 3, 2)
+plt.hist(data_random, bins=50, color='tab:green', alpha=0.5, label='Random sample')
+plt.legend()
+plt.title('Hist of random sample')
+plt.subplot(1, 3, 3)
+plt.hist(data_ranked, bins=50, color='tab:red', alpha=0.5, label='Ranked sample')
+plt.legend()
+plt.title('Hist of ranked sample')
+plt.tight_layout()
+plt.show()
