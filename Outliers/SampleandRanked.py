@@ -195,3 +195,15 @@ def marginal_error(std, t_stat, data):
     marginal_error = t_stat*u
     return marginal_error
 
+# Let's set the confidence at the level of 95% and apply our function
+
+confidence_level = 0.95
+marginal_err_rand = marginal_error(std_random, t_value_rand, data_random)
+marginal_err_rand
+random_sample_size = sample_size_repeat(data_random, marginal_err_rand, confidence_level, std_random)
+print("Random repeat sample size:", round(random_sample_size))
+
+marginal_err_rank = marginal_error(std_ranked, t_value_rank, data_ranked)
+marginal_err_rank
+ranked_sample_size = sample_size_repeat(data_ranked, marginal_err_rank, confidence_level, std_ranked)
+print("Ranked repeat sample size:", round(ranked_sample_size))
