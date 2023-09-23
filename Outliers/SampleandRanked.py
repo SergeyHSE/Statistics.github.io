@@ -145,3 +145,18 @@ se_random = std_random / np.sqrt(len(data_random))
 se_ranked = std_ranked / np.sqrt(len(data_ranked))
 print(f"se_random: {se_random}")
 print(f"se_ranked: {se_ranked}")
+
+# Confidence interval (95%)
+
+confidence_level = 0.95
+t_value_rand = stats.t.ppf((1 + (confidence_level)) / 2, (len(data_random) - 1))
+t_value_rank = stats.t.ppf((1 + (confidence_level)) / 2, (len(data_ranked) - 1))
+
+random_mean = data_random.mean()
+ranked_mean = data_ranked.mean()
+
+confidence_random = (random_mean - t_value_rand * se_random, random_mean + t_value_rand * se_random)
+confidence_ranked = (ranked_mean - t_value_rank * se_ranked, ranked_mean + t_value_rank * se_ranked)
+
+print(f"Confidance interval for random: {confidence_random}")
+print(f"Confidance interval for ranked: {confidence_ranked}")
