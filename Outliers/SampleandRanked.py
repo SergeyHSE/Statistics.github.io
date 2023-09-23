@@ -177,3 +177,12 @@ plt.legend()
 plt.title('Hist of ranked sample')
 plt.tight_layout()
 plt.show()
+
+# On the next step we are gonna write function to calculate necessary number of sample to realize our research the most efficently
+
+def sample_size_repeat(data, marginal_error, confidence_level, std):
+    degrees_of_freedom = (len(data) - 1)
+    t_value = stats.t.ppf((((1 - confidence_level) / 2) + confidence_level), degrees_of_freedom)
+    sample_size = (t_value**2 * std**2) / (marginal_error / 2)**2
+
+    return sample_size
