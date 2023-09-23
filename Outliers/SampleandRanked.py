@@ -186,3 +186,12 @@ def sample_size_repeat(data, marginal_error, confidence_level, std):
     sample_size = (t_value**2 * std**2) / (marginal_error / 2)**2
 
     return sample_size
+
+# Because we don't know marginal error we should also write function for it
+
+def marginal_error(std, t_stat, data):
+    var = std**2
+    u = np.sqrt(var / len(data))
+    marginal_error = t_stat*u
+    return marginal_error
+
