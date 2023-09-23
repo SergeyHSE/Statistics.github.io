@@ -207,3 +207,19 @@ marginal_err_rank = marginal_error(std_ranked, t_value_rank, data_ranked)
 marginal_err_rank
 ranked_sample_size = sample_size_repeat(data_ranked, marginal_err_rank, confidence_level, std_ranked)
 print("Ranked repeat sample size:", round(ranked_sample_size))
+
+# We made method of repeating sample. Now we are gonna use repeatless sample method
+
+def sample_size_nonrepeat(data, marginal_error, confidence_level, std, len_population):
+    degrees_of_freedom = (len(data) - 1)
+    len_population = len(len_population)
+    t_value = stats.t.ppf((((1 - confidence_level) / 2) + confidence_level), degrees_of_freedom)
+    sample_size = ((t_value**2) * (std**2*len_population)) / ((len_population*((marginal_error / 2)**2)) + ((t_value**2) * (std**2)))
+    
+    return sample_size
+
+random_sample_size_nonrepeat = sample_size_nonrepeat(data_random, marginal_err_rand, confidence_level, std_random, data_Z_score)
+print("Random nonrepeat sample size:", round(random_sample_size_nonrepeat))
+
+ranked_sample_size_nonrepeat = sample_size_nonrepeat(data_ranked, marginal_err_rand, confidence_level, std_ranked, data_Z_score)
+print("Ranked nonrepeat sample size:", round(ranked_sample_size_nonrepeat))
