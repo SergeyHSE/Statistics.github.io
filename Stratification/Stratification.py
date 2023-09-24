@@ -27,3 +27,9 @@ data_sheet1 = pd.read_excel(path, sheet_name='1')
 data_sheet2 = pd.read_excel(path, sheet_name='2')
 data_sheet1 = data_sheet1[['Субъект РФ', '10050']]
 data_sheet1.head(10)
+data_sheet2 = data_sheet2['14070']
+data_sheet2.head(10)
+data_sheet1.shape
+data_sheet2.shape
+data = pd.concat([data_sheet1, data_sheet2], axis=1)
+data.head(10)
