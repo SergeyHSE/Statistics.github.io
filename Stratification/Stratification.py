@@ -21,7 +21,7 @@ pd.set_option('display.float_format', lambda x: '%3f' %x)
 # Firstly let's load data and extract nesessary columns
 # Because our columns are lacated in different sheets, we need combine them
 
-path = r"C:\Users\User\Documents\книги\ВШЭ\учёба\Статистика\СХО_данные для группировки.xlsx"
+path = r"Your path\СХО_данные для группировки.xlsx"
 path = path.replace('\\', '/')
 data_sheet1 = pd.read_excel(path, sheet_name='1')
 data_sheet2 = pd.read_excel(path, sheet_name='2')
@@ -33,3 +33,9 @@ data_sheet1.shape
 data_sheet2.shape
 data = pd.concat([data_sheet1, data_sheet2], axis=1)
 data.head(10)
+
+# Remove zeros
+
+(data == 0).sum()
+data = data[(data != 0).all(axis=1)]
+data.shape
