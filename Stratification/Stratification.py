@@ -39,3 +39,13 @@ data.head(10)
 (data == 0).sum()
 data = data[(data != 0).all(axis=1)]
 data.shape
+
+# Find quantiles and IQR
+
+data = data.sort_values(by=['10050'])
+count = data.shape[0]
+count
+quantile1 = np.quantile(data['10050'], 0.25)
+quantile1
+quantile3 = np.quantile(data['10050'], 0.75)
+quantile3
