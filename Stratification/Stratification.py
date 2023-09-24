@@ -17,3 +17,13 @@ import scipy.stats as stats
 pd.set_oprion('display.max_columns', None)
 pd.set_option('display.max_columns', None)
 pd.set_option('display.float_format', lambda x: '%3f' %x)
+
+# Firstly let's load data and extract nesessary columns
+# Because our columns are lacated in different sheets, we need combine them
+
+path = r"C:\Users\User\Documents\книги\ВШЭ\учёба\Статистика\СХО_данные для группировки.xlsx"
+path = path.replace('\\', '/')
+data_sheet1 = pd.read_excel(path, sheet_name='1')
+data_sheet2 = pd.read_excel(path, sheet_name='2')
+data_sheet1 = data_sheet1[['Субъект РФ', '10050']]
+data_sheet1.head(10)
