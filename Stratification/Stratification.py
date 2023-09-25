@@ -76,3 +76,6 @@ if strat_count - h != max_index:
 type(banch)
 len(banch)
 banch
+
+# Create DataFrame of hist
+frequency_df = pd.DataFrame(columns=['Banch', 'Frequency'])
