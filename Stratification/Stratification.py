@@ -72,3 +72,7 @@ while strat_count <= max_index:
 # Add the last value even if strat_count exceeds max_index
 if strat_count - h != max_index:
     banch.append(max_index)
+
+type(banch)
+len(banch)
+banch
