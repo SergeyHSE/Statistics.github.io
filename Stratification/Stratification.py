@@ -52,13 +52,15 @@ quantile3
 
 iqr = quantile3 - quantile1
 iqr
-# Now we are gonna calculate h 
+# Now we are gonna calculate best interval for grouping (h)
 h = (2*iqr) / (pow(count, 1/3))
 h
 max_index = data['10050'].max()
 max_index
 x = max_index / h
-x
+x # this is a maximum number of intervals
+
+# In next code there is formed data to build hist
 
 banch = []
 strat_count = 0
