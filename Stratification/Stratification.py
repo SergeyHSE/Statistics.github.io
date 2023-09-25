@@ -52,9 +52,21 @@ quantile3
 
 iqr = quantile3 - quantile1
 iqr
+# Now we are gonna calculate h 
 h = (2*iqr) / (pow(count, 1/3))
 h
 max_index = data['10050'].max()
 max_index
 x = max_index / h
 x
+
+banch = []
+strat_count = 0
+
+while strat_count <= max_index:
+    banch.append(strat_count)
+    strat_count += h
+
+# Add the last value even if strat_count exceeds max_index
+if strat_count - h != max_index:
+    banch.append(max_index)
