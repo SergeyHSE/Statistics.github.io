@@ -4,7 +4,7 @@ Created on Sat Sep 23 22:39:56 2023
 
 @author: SergeyHSE
 
-We are gonna extract colums kike region, revenue and pig farming cost,
+We are gonna extract colums like region, revenue and pig farming cost,
 sort them by revenue, remove zeros. We need to find intervals that help us split our data on
 5 parts (stratums or cohorts). 
 Then we need to find mean value for cohorts and population, calculate variation.
@@ -49,3 +49,12 @@ quantile1 = np.quantile(data['10050'], 0.25)
 quantile1
 quantile3 = np.quantile(data['10050'], 0.75)
 quantile3
+
+iqr = quantile3 - quantile1
+iqr
+h = (2*iqr) / (pow(count, 1/3))
+h
+max_index = data['10050'].max()
+max_index
+x = max_index / h
+x
