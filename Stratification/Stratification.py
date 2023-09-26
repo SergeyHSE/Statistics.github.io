@@ -79,3 +79,15 @@ banch
 
 # Create DataFrame of hist
 frequency_df = pd.DataFrame(columns=['Banch', 'Frequency'])
+
+for i in range(len(banch) - 1):
+    lower_bound = banch[i]
+    upper_bound = banch[i + 1]
+    count = len(data[(data['10050'] >= lower_bound) & (data['10050'] < upper_bound)])
+    frequency_df.loc[i] = [lower_bound, count]
+
+# Add the last bucket
+lower_bound = banch[-1]
+count = len(data[data['10050'] >= lower_bound])
+frequency_df.loc[len(banch) - 1] = [lower_bound, count]
+frequency_df
