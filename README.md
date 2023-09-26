@@ -7,4 +7,5 @@ The task for 'outlier' folder:
 The task for 'stratification' folder:
 1. Combine data on Revenue for your  characteristic from Task #1 and also the Region.
 2. Sort by revenue 10050. Clear of zeros.
-3. 
+3. Find the necessary revenue division intervals. Build a histogram to visualize the density of the location of the quantities.
+4. 
