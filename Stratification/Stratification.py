@@ -105,3 +105,18 @@ data['strata'] = pd.cut(data['10050'], bins=strat_boundaries, labels=strata_labe
 
 data['strata'].value_counts()
 data.head()
+
+# split this date by strats
+
+data_small = data[(data['strata']=='small_revenue')]
+data_small.shape
+data_small
+data_pre_middle = data[(data['strata']=='pre_middle_revenue')]
+data_pre_middle.shape
+data_middle = data[(data['strata']=='middle_revenue')]
+data_middle.shape
+data_upper_middle = data[(data['strata']=='upper_middle_revenue')]
+data_upper_middle.shape
+data_lardge = data[(data['strata']=='large_revenue')]
+data_lardge.shape
+data_lardge.head()
