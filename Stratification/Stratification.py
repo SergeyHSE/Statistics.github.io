@@ -40,6 +40,13 @@ data.head(10)
 data = data[(data != 0).all(axis=1)]
 data.shape
 
+# Remove outliers
+z_threshold = 3
+
+z_scores = np.abs(stats.zscore(data['14070']))
+
+filtered_data = data[z_scores < z_threshold]
+
 # Find quantiles and IQR
 
 data = data.sort_values(by=['10050'])
