@@ -120,3 +120,6 @@ data_upper_middle.shape
 data_lardge = data[(data['strata']=='large_revenue')]
 data_lardge.shape
 data_lardge.head()
+
+# Find the average values ​​of the indicator and dispersion according to the general general scheme,
+# for each strategy
