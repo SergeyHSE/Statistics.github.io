@@ -123,3 +123,15 @@ data_lardge.head()
 
 # Find the average values ​​of the indicator and dispersion according to the general general scheme,
 # for each strategy
+
+results_df = pd.DataFrame(columns=['Strata', 'Count', 'Percentage', 'Mean', 'Variance'])
+
+
+for strata in strata_labeles:
+    current_strata_data = data[data['strata'] == strata]
+    count = current_strata_data.shape[0]
+    percentage = count / data.shape[0]
+    mean = current_strata_data['14070'].mean()
+    variance = current_strata_data['14070'].var()
+    results_df = results_df.append({'Strata': strata, 'Count': count, 'Percentage': percentage,
+                                    'Mean': mean, 'Variance': variance}, ignore_index=True)
