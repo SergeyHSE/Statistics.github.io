@@ -98,3 +98,10 @@ lower_bound = banch[-1]
 count = len(data[data['10050'] >= lower_bound])
 frequency_df.loc[len(banch) - 1] = [lower_bound, count]
 frequency_df
+
+strat_boundaries = [0, 19000, 44000, 84000, 168000, float('inf')]
+strata_labeles = ['small_revenue', 'pre_middle_revenue', 'middle_revenue', 'upper_middle_revenue', 'large_revenue']
+data['strata'] = pd.cut(data['10050'], bins=strat_boundaries, labels=strata_labeles)
+
+data['strata'].value_counts()
+data.head()
