@@ -135,3 +135,13 @@ for strata in strata_labeles:
     variance = current_strata_data['14070'].var()
     results_df = results_df.append({'Strata': strata, 'Count': count, 'Percentage': percentage,
                                     'Mean': mean, 'Variance': variance}, ignore_index=True)
+
+total_count = data.shape[0]
+total_percentage = 1.0
+total_mean = data['14070'].mean()
+total_var = data['14070'].var()
+results_df = results_df.append({'Strata' : 'Population',
+                                'Count' : total_count,
+                                'Percentage' : total_percentage,
+                                'Mean' : total_mean,
+                                'Variance' : variance}, ignore_index=True)
