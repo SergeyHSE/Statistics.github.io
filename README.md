@@ -8,4 +8,9 @@ The task for 'stratification' folder:
 1. Combine data on Revenue for your  characteristic from Task #1 and also the Region.
 2. Sort by revenue 10050. Clear of zeros.
 3. Find the necessary revenue division intervals. Build a histogram to visualize the density of the location of the quantities.
-4. 
+4. Split data on 5-6 cohorts by Revenue. Give names to every strat.
+5. Find means and variance for every strat and for population.
+6. Calculate real mean.
+7. Calculate the sample variance and find the Deff value.
+8. Make a sample from the number of observations selected in Task 1 in proportion to the share of each layer in the general population and find new values of the mean and Deff.
+9. To give a descriptive economic and geographical overview of the presented regions of Russia on the basis of the stratification made.
