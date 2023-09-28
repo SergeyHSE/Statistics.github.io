@@ -126,7 +126,6 @@ data_lardge.head()
 
 results_df = pd.DataFrame(columns=['Strata', 'Count', 'Percentage', 'Mean', 'Variance'])
 
-
 for strata in strata_labeles:
     current_strata_data = data[data['strata'] == strata]
     count = current_strata_data.shape[0]
@@ -145,3 +144,6 @@ results_df = results_df.append({'Strata' : 'Population',
                                 'Percentage' : total_percentage,
                                 'Mean' : total_mean,
                                 'Variance' : variance}, ignore_index=True)
+
+print(results_df)
+results_df.to_excel('Table_for_all_strats.xlsx')
