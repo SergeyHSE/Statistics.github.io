@@ -150,3 +150,11 @@ results_df.to_excel('Table_for_all_strats.xlsx')
 
 # We should copy the previous code to return table in necessary shape
 
+for strata in strata_labeles:
+    current_strata_data = data[data['strata'] == strata]
+    count = current_strata_data.shape[0]
+    percentage = count / data.shape[0]
+    mean = current_strata_data['14070'].mean()
+    variance = current_strata_data['14070'].var()
+    results_df = results_df.append({'Strata': strata, 'Count': count, 'Percentage': percentage,
+                                    'Mean': mean, 'Variance': variance}, ignore_index=True)
