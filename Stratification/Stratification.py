@@ -147,3 +147,6 @@ results_df = results_df.append({'Strata' : 'Population',
 
 print(results_df)
 results_df.to_excel('Table_for_all_strats.xlsx')
+
+# We should copy the previous code to return table in necessary shape
+
