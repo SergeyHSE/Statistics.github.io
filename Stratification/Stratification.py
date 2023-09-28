@@ -158,3 +158,10 @@ for strata in strata_labeles:
     variance = current_strata_data['14070'].var()
     results_df = results_df.append({'Strata': strata, 'Count': count, 'Percentage': percentage,
                                     'Mean': mean, 'Variance': variance}, ignore_index=True)
+
+# Calculate real mean
+
+results_df['real_mean'] = results_df['Percentage']*results_df['Mean']
+results_df.head()
+sum_real_mean = results_df['real_mean'].sum()
+sum_real_mean
