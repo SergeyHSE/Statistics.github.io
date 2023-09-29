@@ -184,3 +184,13 @@ selected_data_middle = select_rows(data_middle)
 selected_data_upper_middle = select_rows(data_upper_middle)
 selected_data_large = select_rows(data_lardge)
 selected_data_large.head()
+
+# Now let's calculate number of row of every new sample
+
+dataframes = [selected_data_small, selected_data_pre_middle, selected_data_middle,
+              selected_data_upper_middle, selected_data_large]
+row_counts = []
+for d in dataframes:
+    row_counts.append(len(d))
+sum_rows_sample = sum(row_counts)    
+sum_rows_sample
