@@ -170,6 +170,7 @@ sum_real_mean
 Calculate sample variance and Deff 
 """
 
+# Before this we should form new samples, each of which contain ten percent of cohorts
 
 def select_rows(df):
     selected_rows = []
