@@ -200,3 +200,13 @@ sum_rows_sample
 results_df['selcetive_variation'] = results_df['Percentage']*results_df['Variance']
 sum_select_var = results_df['selcetive_variation'].sum()
 sum_select_var
+
+total_count = data.shape[0]
+
+# Create sample variance function and calculate it
+
+def selective_variation(sum_var, sum_rows, total_rows):
+    select_var = ((1 - (sum_rows/total_rows))/sum_rows)*sum_var
+    return select_var
+selective_variance = selective_variation(sum_select_var, sum_rows_sample, total_count)
+selective_variance
