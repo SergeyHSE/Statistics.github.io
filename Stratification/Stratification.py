@@ -210,3 +210,7 @@ def selective_variation(sum_var, sum_rows, total_rows):
     return select_var
 selective_variance = selective_variation(sum_select_var, sum_rows_sample, total_count)
 selective_variance
+
+# Create variation for population
+var_popul = data['14070'].var()
+
