@@ -194,3 +194,9 @@ for d in dataframes:
     row_counts.append(len(d))
 sum_rows_sample = sum(row_counts)    
 sum_rows_sample
+
+# Create new column to calculate sum of cohort variance
+
+results_df['selcetive_variation'] = results_df['Percentage']*results_df['Variance']
+sum_select_var = results_df['selcetive_variation'].sum()
+sum_select_var
