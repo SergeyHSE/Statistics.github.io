@@ -178,3 +178,9 @@ def select_rows(df):
         selected_rows.append(df.iloc[i:i+1])
     return pd.concat(selected_rows, axis=0)
 
+selected_data_small = select_rows(data_small)
+selected_data_pre_middle = select_rows(data_pre_middle)
+selected_data_middle = select_rows(data_middle)
+selected_data_upper_middle = select_rows(data_upper_middle)
+selected_data_large = select_rows(data_lardge)
+selected_data_large.head()
