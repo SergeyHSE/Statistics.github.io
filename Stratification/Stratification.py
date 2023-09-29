@@ -165,3 +165,15 @@ results_df['real_mean'] = results_df['Percentage']*results_df['Mean']
 results_df.head()
 sum_real_mean = results_df['real_mean'].sum()
 sum_real_mean
+
+"""
+Calculate sample variance and Deff 
+"""
+
+
+def select_rows(df):
+    selected_rows = []
+    for i in range(5, len(df), 10):
+        selected_rows.append(df.iloc[i:i+1])
+    return pd.concat(selected_rows, axis=0)
+
