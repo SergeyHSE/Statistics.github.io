@@ -214,3 +214,11 @@ selective_variance
 # Create variation for population
 var_popul = data['14070'].var()
 
+# Create and calculate Deff function for cohorts
+
+def DEff(var_pop, sum_rows, total_rows, select_var):
+    deff = select_var/(((1-(sum_rows/total_rows))*var_pop)/sum_rows)
+    return deff
+
+deff = DEff(var_popul, sum_rows_sample, total_count, selective_variance)
+deff
