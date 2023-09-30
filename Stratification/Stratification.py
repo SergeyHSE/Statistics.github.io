@@ -253,9 +253,20 @@ plt.show()
 
 # Firstly we should combine our tables
 
-
 dataframes_to_concat = [selected_data_small, selected_data_pre_middle, selected_data_middle, selected_data_upper_middle, selected_data_large]
 
 combined_data = pd.concat(dataframes_to_concat, ignore_index=True)
 combined_data.head()
 combined_data.shape
+
+# Again create result table for indicators
+
+results_df_rand = pd.DataFrame(columns=['Strata', 'Count', 'Percentage', 'Mean', 'Variance'])
+for strata in strata_labeles:
+    rand_strata_data = combined_data[combined_data['strata'] == strata]
+    count = rand_strata_data.shape[0]
+    percentage = count / combined_data.shape[0]
+    mean = rand_strata_data['14070'].mean()
+    variance = rand_strata_data['14070'].var()
+    results_df_rand = results_df_rand.append({'Strata': strata, 'Count': count, 'Percentage': percentage,
+                                    'Mean': mean, 'Variance': variance}, ignore_index=True)
