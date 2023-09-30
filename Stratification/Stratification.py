@@ -290,3 +290,8 @@ for strata in strata_labeles:
     variance = rand_strata_data['14070'].var()
     results_df_rand = results_df_rand.append({'Strata': strata, 'Count': count, 'Percentage': percentage,
                                     'Mean': mean, 'Variance': variance}, ignore_index=True)
+
+results_df_rand['real_mean'] = results_df_rand['Percentage']*results_df_rand['Mean']
+results_df_rand
+sum_real_mean_rand = results_df_rand['real_mean'].sum()
+sum_real_mean_rand
