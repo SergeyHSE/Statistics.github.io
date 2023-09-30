@@ -246,3 +246,16 @@ ax.set_xticklabels(strats, rotation=45, ha='right')
 ax.set_title('Difference between Mean and True Mean')
 ax.legend(loc="upper left")
 plt.show()
+
+"""
+ We already create 10% samples and now we should calculate the same metrix
+"""
+
+# Firstly we should combine our tables
+
+
+dataframes_to_concat = [selected_data_small, selected_data_pre_middle, selected_data_middle, selected_data_upper_middle, selected_data_large]
+
+combined_data = pd.concat(dataframes_to_concat, ignore_index=True)
+combined_data.head()
+combined_data.shape
