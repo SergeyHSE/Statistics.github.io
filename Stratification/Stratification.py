@@ -232,3 +232,17 @@ strats = results_df['Strata'].tolist()
 strats
 difference = [mean - sum_real_mean for mean in y_mean]
 difference
+
+color_palette = plt.cm.viridis(np.linspace(0, 1, len(strats)))
+
+fig, ax = plt.subplots(figsize=(10, 8), dpi=100)
+x = np.arange(len(strats))
+for i in range(len(strats)):
+    ax.bar(x[i], difference[i], color=color_palette[i], label=strats[i])
+ax.set_xlabel('Strat')
+ax.set_ylabel('Difference')
+ax.set_xticks(x)
+ax.set_xticklabels(strats, rotation=45, ha='right')
+ax.set_title('Difference between Mean and True Mean')
+ax.legend(loc="upper left")
+plt.show()
