@@ -295,3 +295,7 @@ results_df_rand['real_mean'] = results_df_rand['Percentage']*results_df_rand['Me
 results_df_rand
 sum_real_mean_rand = results_df_rand['real_mean'].sum()
 sum_real_mean_rand
+
+results_df_rand['selcetive_variation'] = results_df_rand['Percentage']*results_df_rand['Variance']
+sum_select_var_rand = results_df_rand['selcetive_variation'].sum()
+sum_select_var_rand
