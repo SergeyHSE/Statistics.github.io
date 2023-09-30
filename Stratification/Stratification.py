@@ -299,3 +299,9 @@ sum_real_mean_rand
 results_df_rand['selcetive_variation'] = results_df_rand['Percentage']*results_df_rand['Variance']
 sum_select_var_rand = results_df_rand['selcetive_variation'].sum()
 sum_select_var_rand
+
+selective_variance_rand = selective_variation(sum_select_var_rand, sum_rows_sample, total_count)
+selective_variance_rand
+
+deff = DEff(var_popul, sum_rows_sample, total_count, selective_variance_rand)
+deff
