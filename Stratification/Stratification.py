@@ -222,3 +222,13 @@ def DEff(var_pop, sum_rows, total_rows, select_var):
 
 deff = DEff(var_popul, sum_rows_sample, total_count, selective_variance)
 deff
+
+# let's look at diffference between real mean and mean of cohorts
+
+results_df
+y_mean = np.array(results_df['Mean'])
+y_mean
+strats = results_df['Strata'].tolist()
+strats
+difference = [mean - sum_real_mean for mean in y_mean]
+difference
