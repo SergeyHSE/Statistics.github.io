@@ -279,3 +279,14 @@ results_df_rand = results_df_rand.append({'Strata' : 'Population',
                                 'Percentage' : total_percentage,
                                 'Mean' : total_mean,
                                 'Variance' : variance}, ignore_index=True)
+
+results_df_rand.to_excel('Table_for_rand_strats.xlsx')
+results_df_rand
+for strata in strata_labeles:
+    rand_strata_data = combined_data[combined_data['strata'] == strata]
+    count = rand_strata_data.shape[0]
+    percentage = count / combined_data.shape[0]
+    mean = rand_strata_data['14070'].mean()
+    variance = rand_strata_data['14070'].var()
+    results_df_rand = results_df_rand.append({'Strata': strata, 'Count': count, 'Percentage': percentage,
+                                    'Mean': mean, 'Variance': variance}, ignore_index=True)
