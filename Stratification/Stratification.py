@@ -314,3 +314,17 @@ strats_rand = results_df_rand['Strata'].tolist()
 strats_rand
 difference_rand = [mean - sum_real_mean_rand for mean in y_mean_rand]
 difference_rand
+
+color_palette = plt.cm.viridis(np.linspace(0, 1, len(strats_rand)))
+
+fig, ax = plt.subplots(figsize=(10, 8), dpi=100)
+x = np.arange(len(strats_rand))
+for i in range(len(strats_rand)):
+    ax.bar(x[i], difference_rand[i], color=color_palette[i], label=strats_rand[i])
+ax.set_xlabel('Strat_rand')
+ax.set_ylabel('Difference_rand')
+ax.set_xticks(x)
+ax.set_xticklabels(strats_rand, rotation=45, ha='right')
+ax.set_title('Difference between Mean and True Mean for Randome sample')
+ax.legend(loc="upper left")
+plt.show()
