@@ -339,3 +339,10 @@ result
 
 result = result.groupby(['Субъект РФ', 'strata']).sum().unstack(fill_value=0)
 result
+
+result.plot(kind='bar', stacked=True, figsize=(12, 8))
+plt.xlabel('Region', fontsize=14)
+plt.ylabel('Namber of strats', fontsize=14)
+plt.title('Number of strats in every Region', fontsize=16)
+plt.legend(title='Type of strats', bbox_to_anchor=(1.05, 1), loc='upper left', fontsize=18)
+plt.show()
