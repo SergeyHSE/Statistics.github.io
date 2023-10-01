@@ -305,3 +305,12 @@ selective_variance_rand
 
 deff = DEff(var_popul, sum_rows_sample, total_count, selective_variance_rand)
 deff
+
+# We also can calculate difference between real mean and mean 10% cohorts
+
+y_mean_rand = np.array(results_df_rand['Mean'])
+y_mean_rand
+strats_rand = results_df_rand['Strata'].tolist()
+strats_rand
+difference_rand = [mean - sum_real_mean_rand for mean in y_mean_rand]
+difference_rand
