@@ -328,3 +328,14 @@ ax.set_xticklabels(strats_rand, rotation=45, ha='right')
 ax.set_title('Difference between Mean and True Mean for Randome sample')
 ax.legend(loc="upper left")
 plt.show()
+
+# Let's build figure to show how many type of cohorts exist in every region
+
+result = combined_data.groupby(['Субъект РФ', 'strata'], as_index=False).size()
+result = result.rename(columns={'size': 'Number of strats'})
+result
+result = result[(result != 0).all(axis=1)]
+result
+
+result = result.groupby(['Субъект РФ', 'strata']).sum().unstack(fill_value=0)
+result
