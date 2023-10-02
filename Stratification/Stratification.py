@@ -407,3 +407,19 @@ axes[1].legend()
 plt.xlabel('Region', fontsize=16)
 plt.tight_layout()
 plt.show()
+
+# Because figue is not entirely informative, we should create new metric and visulize it
+
+combined_data['Percent_cost_of_revenue'] = combined_data['PigFarmingCost']/combined_data['Revenue']*100
+combined_data
+
+data_cost_groped_p = combined_data.groupby('Region')['Percent_cost_of_revenue'].mean().reset_index()
+
+plt.figure(figsize=(12, 6), dpi=100)
+plt.bar(data_cost_groped_p['Region'], data_cost_groped_p['Percent_cost_of_revenue'], color='purple')
+plt.xlabel('Region', fontsize=16)
+plt.ylabel('Percent of Cost to Revenue', fontsize=16)
+plt.title('Percent of Cost to Revenue by Region', fontsize=16)
+plt.xticks(rotation=45, ha='right')
+plt.tight_layout()
+plt.show()
