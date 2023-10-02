@@ -347,6 +347,8 @@ plt.title('Number of strats in every Region', fontsize=16)
 plt.legend(title='Type of strats', bbox_to_anchor=(1.05, 1), loc='upper left', fontsize=18)
 plt.show()
 
+# Rename columns
+
 combined_data.columns
 column_new_name = {'Субъект РФ' : 'Region',
                    '10050' : 'Revenue',
@@ -354,3 +356,17 @@ column_new_name = {'Субъект РФ' : 'Region',
 
 combined_data = combined_data.rename(columns=column_new_name)
 combined_data.columns
+
+# Group the data by regions and calculate the sum and mean for 'PigFarmingCost'
+data_cost_groped = combined_data.groupby('Region')['PigFarmingCost'].agg(['sum', 'mean'])
+
+fig, axes = plt.subplots(nrows=2, ncols=1, figsize=(12, 8))
+data_cost_groped['sum'].plot(kind='bar', ax=axes[0], width=0.8, color='b')
+axes[0].set_ylabel('Sum', fontsize=16)
+axes[0].set_title('Sum PigFarmingCost by Region', fontsize=16)
+data_cost_groped['mean'].plot(kind='bar', ax=axes[1], width=0.8, color='g')
+axes[1].set_ylabel('Mean', fontsize=16)
+axes[1].set_title('Mean PigFarmingCost by Region', fontsize=16)
+plt.xlabel('Region', fontsize=16)
+plt.tight_layout()
+plt.show()
