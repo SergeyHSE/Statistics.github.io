@@ -346,3 +346,11 @@ plt.ylabel('Namber of strats', fontsize=14)
 plt.title('Number of strats in every Region', fontsize=16)
 plt.legend(title='Type of strats', bbox_to_anchor=(1.05, 1), loc='upper left', fontsize=18)
 plt.show()
+
+combined_data.columns
+column_new_name = {'Субъект РФ' : 'Region',
+                   '10050' : 'Revenue',
+                   '14070' : 'PigFarmingCost'}
+
+combined_data = combined_data.rename(columns=column_new_name)
+combined_data.columns
