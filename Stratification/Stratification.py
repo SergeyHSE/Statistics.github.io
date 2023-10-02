@@ -370,3 +370,17 @@ axes[1].set_title('Mean PigFarmingCost by Region', fontsize=16)
 plt.xlabel('Region', fontsize=16)
 plt.tight_layout()
 plt.show()
+
+# Group the data by regions and calculate the sum and mean for 'Revenue'
+data_cost_groped_r = combined_data.groupby('Region')['Revenue'].agg(['sum', 'mean'])
+
+fig, axes = plt.subplots(nrows=2, ncols=1, figsize=(12, 8))
+data_cost_groped_r['sum'].plot(kind='bar', ax=axes[0], width=0.8, color='b')
+axes[0].set_ylabel('Sum', fontsize=16)
+axes[0].set_title('Sum Revenue by Region', fontsize=16)
+data_cost_groped_r['mean'].plot(kind='bar', ax=axes[1], width=0.8, color='g')
+axes[1].set_ylabel('Mean', fontsize=16)
+axes[1].set_title('Mean Revenue by Region', fontsize=16)
+plt.xlabel('Region', fontsize=16)
+plt.tight_layout()
+plt.show()
