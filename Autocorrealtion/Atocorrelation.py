@@ -59,3 +59,8 @@ def get_quarter(date):
     else:
         return 'Q1'
 df
+
+df['Quarter'] = df['Date'].apply(get_quarter)
+df = pd.get_dummies(df, columns=['Quarter'], drop_first=True)
+df = df.drop(['Q2', 'Q3', 'Q4'], axis=1)
+df.columns
