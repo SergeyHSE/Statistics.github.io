@@ -15,9 +15,10 @@ The task for 'stratification' folder:
 8. Make a sample from the number of observations selected in Task 1 in proportion to the share of each layer in the general population and find new values of the mean and Deff.
 9. To give a descriptive economic and geographical overview of the presented regions of Russia on the basis of the stratification made.
 
-The task for 'autocorrelation' folder:
+The task for 'autocorrelation' folder :
 1. Identify and remove seasonality in time series data (production of fermented milk products (2019-2021)).
 2. Compare data with and without seasonality.
 3. Add to this model several features: wholesale dairy price, index of dairy production costs and dummy.
 4. Make regression analysis.
 5. Make prediction.
+The work presents in both variants: python and excel.
