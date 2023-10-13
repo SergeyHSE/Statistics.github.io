@@ -43,3 +43,19 @@ df['Date'] = pd.to_datetime(df['Year'].astype(int).astype(str) + df['Month'], fo
 df = df.drop(['Year', 'Month'], axis=1)
 df.columns
 df
+
+# Create dummy variables
+df['Q2'] = 0
+df['Q3'] = 0
+df['Q4'] = 0
+
+def get_quarter(date):
+    if date.month in [3, 4, 5]:
+        return 'Q2'
+    elif date.month in [6, 7, 8]:
+        return 'Q3'
+    elif date.month in [9, 10, 11]:
+        return 'Q4'
+    else:
+        return 'Q1'
+df
