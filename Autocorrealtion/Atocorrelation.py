@@ -20,3 +20,26 @@ df = df.drop('Удаление автокорреляци', axis=1)
 # Fill NaN
 df['Year'].fillna(method='ffill', inplace=True)
 df
+
+month_map = {
+    'январь': 'January',
+    'февраль': 'February',
+    'март': 'March',
+    'апрель': 'April',
+    'май': 'May',
+    'июнь': 'June',
+    'июль': 'July',
+    'август': 'August',
+    'сентябрь' : 'September',
+    'октябрь' : 'October',
+    'ноябрь' : 'November',
+    'декабрь' : 'December'
+}
+
+df['Month'] = df['Month'].map(month_map)
+df
+df['Date'] = pd.to_datetime(df['Year'].astype(int).astype(str) + df['Month'], format='%Y%B')
+
+df = df.drop(['Year', 'Month'], axis=1)
+df.columns
+df
