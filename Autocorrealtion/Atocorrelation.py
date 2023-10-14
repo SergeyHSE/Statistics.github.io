@@ -64,3 +64,8 @@ df['Quarter'] = df['Date'].apply(get_quarter)
 df = pd.get_dummies(df, columns=['Quarter'], drop_first=True)
 df = df.drop(['Q2', 'Q3', 'Q4'], axis=1)
 df.columns
+
+df['Q2'] = df['Quarter_Q2']
+df['Q3'] = df['Quarter_Q3']
+df['Q4'] = df['Quarter_Q4']
+df = df.drop(['Quarter_Q2', 'Quarter_Q3', 'Quarter_Q4'], axis=1)
