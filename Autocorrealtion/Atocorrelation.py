@@ -80,3 +80,13 @@ plt.title('Production dynamics')
 decomp_plot .set_figheight(10)
 decomp_plot .set_figwidth(10)
 plt.show()
+
+# Let's fit regression model and check all parametrs
+X = df[['price_opt', 'RMCI', 'Q2', 'Q3', 'Q4']]
+y = df['Production']
+
+X = sm.add_constant(X)
+
+model = sm.OLS(y, X).fit()
+
+print(model.summary())
