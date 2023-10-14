@@ -122,15 +122,15 @@ Kurtosis:                       2.234   Cond. No.                     4.73e+03
 
 # Compare target and ather variables
 fig, axes = plt.subplots(3, 1, figsize=(12, 18), sharex=True)
-axes[0].plot(df.index, df['Production'], label='Production', linestyle='-', marker='o')
+axes[0].plot(df['Date'], df['Production'], label='Production', linestyle='-', marker='o')
 axes[0].set_title('Production time series')
 axes[0].set_ylabel('Production')
 axes[0].grid(True)
-axes[1].plot(df.index, df['price_opt'], label='Price', linestyle='-', marker='o', color='orange')
+axes[1].plot(df['Date'], df['price_opt'], label='Price', linestyle='-', marker='o', color='orange')
 axes[1].set_title('Price time series')
 axes[1].set_ylabel('Price')
 axes[1].grid(True)
-axes[2].plot(df.index, df['RMCI'], label='RMCI', linestyle='-', marker='o', color='green')
+axes[2].plot(df['Date'], df['RMCI'], label='RMCI', linestyle='-', marker='o', color='green')
 axes[2].set_title('RMCI')
 axes[2].set_xlabel('date')
 axes[2].set_ylabel('RMCI')
