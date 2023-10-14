@@ -69,3 +69,14 @@ df['Q2'] = df['Quarter_Q2']
 df['Q3'] = df['Quarter_Q3']
 df['Q4'] = df['Quarter_Q4']
 df = df.drop(['Quarter_Q2', 'Quarter_Q3', 'Quarter_Q4'], axis=1)
+
+# Decompose data by selecting the appropiate frequancy
+decomp = sm.tsa.seasonal_decompose(
+    df['Production'], period=12)
+
+plt.figure(figsize=(10, 8), dpi=100)
+decomp_plot = decomp.plot()
+plt.title('Production dynamics')
+decomp_plot .set_figheight(10)
+decomp_plot .set_figwidth(10)
+plt.show()
