@@ -165,7 +165,19 @@ print(f"F for residuals: {bp_test[2]}")
 print(f"p-value F: {bp_test[3]}")
 
 """
-To test for first-order autocorrelation, we can perform a Durbin-Watson test.
-However, if we’d like to test for autocorrelation
-at higher orders then we need to perform a Breusch-Godfrey test.
+To test for first-order autocorrelation, we can perform a Durbin-Watson test. 
+However, if we’d like to test for autocorrelation at higher orders then we need
+to perform a Breusch-Godfrey test.
+If the p-value that corresponds to this test statistic is less than a certain
+significance level (e.g. 0.05) then we can reject the null hypothesis and
+conclude that autocorrelation exists among the residuals at some order
+less than or equal to p.
 """
+from statsmodels.stats.diagnostic import acorr_breusch_godfrey
+
+bg_test = acorr_breusch_godfrey(model, nlags=2)
+
+print(f"X^2 test: {bg_test[0]}")
+print(f"p-value: {bg_test[1]}")
+print(f"Статистика теста (для второго порядка): {bg_test[2]}")
+print(f"p-значение теста (для второго порядка): {bg_test[3]}")
