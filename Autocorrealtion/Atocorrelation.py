@@ -139,5 +139,10 @@ plt.legend()
 plt.tight_layout()
 plt.show()
 
+# Conduct tests to check autocorrelation, specification and heteroscedactisity
+from statsmodels.stats.stattools import durbin_watson
 
+dw_statistic = durbin_watson(model.resid)
+
+print(f"DB statistic: {dw_statistic}")
 
