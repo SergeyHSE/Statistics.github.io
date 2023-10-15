@@ -152,10 +152,14 @@ reset_test = linear_reset(model)
 print(reset_test.summary())
 
 from statsmodels.stats.diagnostic import het_breuschpagan
-
+"""
+If the p-value of the test is less than some significance level (i.e. α = .05)
+then we reject the null hypothesis and conclude that heteroscedasticity
+is present in the residuals in the regression model.
+"""
 bp_test = het_breuschpagan(model.resid, model.model.exog)
 
-print(f"Статистика теста: {bp_test[0]}")
-print(f"p-значение для регрессии остатков на независимые переменные: {bp_test[1]}")
-print(f"Статистика теста для остатков в модели с учетом предсказанных значений: {bp_test[2]}")
-print(f"p-значение для регрессии остатков в модели с учетом предсказанных значений: {bp_test[3]}")
+print(f"Lagrange for model: {bp_test[0]}")
+print(f"p-value Lagrange: {bp_test[1]}")
+print(f"F for residuals: {bp_test[2]}")
+print(f"p-value F: {bp_test[3]}")
