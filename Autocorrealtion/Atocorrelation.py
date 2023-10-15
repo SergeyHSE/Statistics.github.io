@@ -198,3 +198,9 @@ adf_test = adfuller(time_series)
 print("ADF Statistic:", adf_test[0])
 print("p-value:", adf_test[1])
 print("Critical Values:", adf_test[4])
+
+from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
+
+plot_acf(y)
+plot_pacf(y)
+plt.show()
