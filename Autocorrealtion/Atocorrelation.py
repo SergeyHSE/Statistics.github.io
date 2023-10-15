@@ -135,4 +135,9 @@ axes[2].set_title('RMCI time series')
 axes[2].set_xlabel('date')
 axes[2].set_ylabel('RMCI')
 axes[2].grid(True)
+plt.legend()
+plt.tight_layout()
+plt.show()
+
+
 
