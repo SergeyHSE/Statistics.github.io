@@ -150,3 +150,12 @@ from statsmodels.stats.diagnostic import linear_reset
 
 reset_test = linear_reset(model)
 print(reset_test.summary())
+
+from statsmodels.stats.diagnostic import het_breuschpagan
+
+bp_test = het_breuschpagan(model.resid, model.model.exog)
+
+print(f"Статистика теста: {bp_test[0]}")
+print(f"p-значение для регрессии остатков на независимые переменные: {bp_test[1]}")
+print(f"Статистика теста для остатков в модели с учетом предсказанных значений: {bp_test[2]}")
+print(f"p-значение для регрессии остатков в модели с учетом предсказанных значений: {bp_test[3]}")
