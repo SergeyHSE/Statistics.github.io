@@ -163,3 +163,9 @@ print(f"Lagrange for model: {bp_test[0]}")
 print(f"p-value Lagrange: {bp_test[1]}")
 print(f"F for residuals: {bp_test[2]}")
 print(f"p-value F: {bp_test[3]}")
+
+"""
+To test for first-order autocorrelation, we can perform a Durbin-Watson test.
+However, if we’d like to test for autocorrelation
+at higher orders then we need to perform a Breusch-Godfrey test.
+"""
