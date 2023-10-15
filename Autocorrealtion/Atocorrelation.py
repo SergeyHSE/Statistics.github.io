@@ -187,3 +187,14 @@ from statsmodels.stats.diagnostic import het_arch
 arch_test = het_arch(model.resid, nlags=1)
 print(f"X^2: {arch_test[0]}")
 print(f"p-value: {arch_test[1]}")
+
+# Stacianarity test
+from statsmodels.tsa.stattools import adfuller
+
+time_series = model.resid
+
+adf_test = adfuller(time_series)
+
+print("ADF Statistic:", adf_test[0])
+print("p-value:", adf_test[1])
+print("Critical Values:", adf_test[4])
