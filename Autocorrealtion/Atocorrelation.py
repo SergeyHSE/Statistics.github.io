@@ -146,3 +146,7 @@ dw_statistic = durbin_watson(model.resid)
 
 print(f"DB statistic: {dw_statistic}")
 
+from statsmodels.stats.diagnostic import linear_reset
+
+reset_test = linear_reset(model)
+print(reset_test.summary())
