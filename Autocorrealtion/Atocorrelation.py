@@ -230,3 +230,7 @@ print(f"X^2 test: {bg_test[0]}")
 print(f"p-value: {bg_test[1]}")
 print(f"F: {bg_test[2]}")
 print(f"p-value: {bg_test[3]}")
+
+arch_test = het_arch(model.resid, nlags=1)
+print(f"X^2: {arch_test[0]}")
+print(f"p-value: {arch_test[1]}")
