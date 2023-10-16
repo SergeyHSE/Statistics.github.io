@@ -251,3 +251,23 @@ model = auto_arima(y=df['Production'], X=df[['Q2', 'Q3', 'Q4']], seasonal=True, 
 
 best_order = model.get_params()['order']
 best_seasonal_order = model.get_params()['seasonal_order']
+
+arima_model = ARIMA(endog=df['Production'], order=best_order, seasonal_order=best_seasonal_order)
+
+model_fit = arima_model.fit()
+
+forecast_steps = 12
+forecast_values = model_fit.forecast(steps=forecast_steps)
+
+last_date = df.index[-1]
+date_range = pd.date_range(start=last_date, periods=forecast_steps + 1, freq='M')[1:]
+
+plt.figure(figsize=(12, 6))
+plt.plot(df['Production'], label='Initial data', linestyle='-', marker='o')
+plt.plot(date_range, forecast_values, label='Forecast', linestyle='--', marker='o')
+plt.title('Production forcast for 12 months')
+plt.xlabel('Date')
+plt.ylabel('Production')
+plt.legend()
+plt.grid(True)
+plt.show()
