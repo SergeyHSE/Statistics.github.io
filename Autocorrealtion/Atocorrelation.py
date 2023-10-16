@@ -215,3 +215,6 @@ print(model.summary())
 
 dw_statistic = durbin_watson(model.resid)
 print(f"Статистика Дарбина-Уотсона: {dw_statistic}")
+
+reset_test = linear_reset(model)
+print(reset_test.summary())
