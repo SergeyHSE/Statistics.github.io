@@ -204,3 +204,11 @@ from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
 plot_acf(y)
 plot_pacf(y)
 plt.show()
+
+X = df[['Q2', 'Q3', 'Q4']]
+
+X = sm.add_constant(X)
+
+model = sm.OLS(y, X).fit()
+
+print(model.summary())
