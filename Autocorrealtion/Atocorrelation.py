@@ -212,3 +212,6 @@ X = sm.add_constant(X)
 model = sm.OLS(y, X).fit()
 
 print(model.summary())
+
+dw_statistic = durbin_watson(model.resid)
+print(f"Статистика Дарбина-Уотсона: {dw_statistic}")
