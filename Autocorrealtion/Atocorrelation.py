@@ -246,3 +246,8 @@ from pmdarima import auto_arima
 
 df.set_index('Date', inplace=True)
 df
+
+model = auto_arima(y=df['Production'], X=df[['Q2', 'Q3', 'Q4']], seasonal=True, m=12, stepwise=True, suppress_warnings=True)
+
+best_order = model.get_params()['order']
+best_seasonal_order = model.get_params()['seasonal_order']
