@@ -218,3 +218,9 @@ print(f"Статистика Дарбина-Уотсона: {dw_statistic}")
 
 reset_test = linear_reset(model)
 print(reset_test.summary())
+
+bp_test = het_breuschpagan(model.resid, model.model.exog)
+print(f"Lagrange for model: {bp_test[0]}")
+print(f"p-value Lagrange: {bp_test[1]}")
+print(f"F for residuals: {bp_test[2]}")
+print(f"p-value F: {bp_test[3]}")
