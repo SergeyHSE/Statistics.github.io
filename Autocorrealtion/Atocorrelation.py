@@ -240,3 +240,9 @@ adf_test = adfuller(time_series)
 print("ADF Statistic:", adf_test[0])
 print("p-value:", adf_test[1])
 print("Critical Values:", adf_test[4])
+
+# Build forecast
+from pmdarima import auto_arima
+
+df.set_index('Date', inplace=True)
+df
