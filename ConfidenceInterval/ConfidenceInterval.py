@@ -27,3 +27,12 @@ def confidence_experiment(theta, sample_size=10, num_samples=20, alpha=0.05):
         a = sample_size
         scale = 1 / (sample_size * theta_hat)
         ci_3 = (stats.gamma.ppf(alpha/2, a, scale=scale), stats.gamma.ppf(1 - alpha/2, a, scale=scale))
+       # Results
+        crit_1 = stats.norm.interval(1 - alpha, loc=0, scale=1)[0] <= (theta_hat - theta) / se_1 <= stats.norm.interval(1 - alpha, loc=0, scale=1)[1]
+        crit_2 = stats.norm.interval(1 - alpha, loc=0, scale=1)[0] <= (theta_hat**2 - theta**2) / se_2 <= stats.norm.interval(1 - alpha, loc=0, scale=1)[1]
+        crit_3 = ci_3[0] <= theta <= ci_3[1]
+        
+        results.append([ci_1, ci_2, ci_3, crit_1, crit_2, crit_3])
+    
+    return results
+
