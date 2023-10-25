@@ -22,3 +22,8 @@ def confidence_experiment(theta, sample_size=10, num_samples=20, alpha=0.05):
         # (для theta^2)
         se_2 = (2 * theta_hat**2) / np.sqrt(sample_size)
         ci_2 = (theta_hat**2 - stats.norm.ppf(1 - alpha/2) * se_2, theta_hat**2 + stats.norm.ppf(1 - alpha/2) * se_2)
+        
+        # The exact confidence interval (based on gamma distribution)
+        a = sample_size
+        scale = 1 / (sample_size * theta_hat)
+        ci_3 = (stats.gamma.ppf(alpha/2, a, scale=scale), stats.gamma.ppf(1 - alpha/2, a, scale=scale))
