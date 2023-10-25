@@ -42,8 +42,8 @@ num_samples = 20
 alpha = 0.05
 
 results = confidence_experiment(theta, sample_size, num_samples, alpha)
-df = pd.DataFrame(results, columns=["Интервал обычный", "Интервал асимптотический", "Интервал точный", 
-                                    "Обычный", "Асимптотический", "Точный"])
+df = pd.DataFrame(results, columns=["Interval_1", "Interval_2", "Interval_3", 
+                                    "One", "Asymptotic", "Exact"])
 
 df = df.apply(lambda x: [f"({val[0]:.2f}, {val[1]:.2f})" if isinstance(val, tuple) else val for val in x])
 
