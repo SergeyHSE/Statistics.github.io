@@ -66,4 +66,14 @@ In the next step we are gonna show the relationship berween confidance interval 
 Also we need estimate share of interval coverage.
 """
 
+theta = 1  
+num_samples = 100
+alpha = 0.05
+
+sample_sizes = np.arange(0, 101, 10)
+
+coverages_asymptotic = []
+coverages_exact = []
+mean_lengths_asymptotic = []
+mean_lengths_exact = []
 
