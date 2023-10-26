@@ -77,3 +77,10 @@ coverages_exact = []
 mean_lengths_asymptotic = []
 mean_lengths_exact = []
 
+# we are gonna provide experiments for different sizes of samples
+for sample_size in sample_sizes:
+    results = confidence_experiment(theta, sample_size, num_samples, alpha)
+    
+    # Calculate share of interval coverage and mean lenth of intervals
+    coverage_asymptotic = sum([1 for res in results if res[0][0] <= theta <= res[0][1]]) / num_samples
+    coverage_exact = sum([1 for res in results if res[2][0] <= theta <= res[2][1]]) / num_samples
