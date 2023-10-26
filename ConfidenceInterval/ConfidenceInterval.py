@@ -60,3 +60,10 @@ df = pd.DataFrame(results, columns=["Interval_1", "Interval_2", "Interval_3",
 df = df.apply(lambda x: [f"({val[0]:.2f}, {val[1]:.2f})" if isinstance(val, tuple) else val for val in x])
 
 print(df)
+
+"""
+In the next step we are gonna show the relationship berween confidance interval and size of samples.
+Also we need estimate share of interval coverage.
+"""
+
+
