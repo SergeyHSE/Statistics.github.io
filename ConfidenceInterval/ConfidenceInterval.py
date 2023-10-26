@@ -93,3 +93,11 @@ for sample_size in sample_sizes:
     mean_lengths_asymptotic.append(mean_length_asymptotic)
     mean_lengths_exact.append(mean_length_exact)
     
+plt.figure(figsize=(14, 6))
+plt.subplot(1, 2, 1)
+plt.plot(sample_sizes, coverages_asymptotic, marker='o', label='Asнmptotic')
+plt.plot(sample_sizes, coverages_exact, marker='o', label='Exat')
+plt.xlabel('Size of sample')
+plt.ylabel('Share of coverage')
+plt.legend()
+plt.grid()
