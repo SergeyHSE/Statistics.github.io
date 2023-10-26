@@ -48,3 +48,15 @@ df = pd.DataFrame(results, columns=["Interval_1", "Interval_2", "Interval_3",
 df = df.apply(lambda x: [f"({val[0]:.2f}, {val[1]:.2f})" if isinstance(val, tuple) else val for val in x])
 
 print(df)
+
+# Repeat the same actions for wrong H:0
+
+theta = 2 
+
+results = confidence_experiment(theta, sample_size, num_samples, alpha)
+df = pd.DataFrame(results, columns=["Interval_1", "Interval_2", "Interval_3", 
+                                    "One", "Asymptotic", "Exact"])
+
+df = df.apply(lambda x: [f"({val[0]:.2f}, {val[1]:.2f})" if isinstance(val, tuple) else val for val in x])
+
+print(df)
