@@ -223,3 +223,12 @@ confidence_interval_criterion_2 = (mean_error_rate_criterion_2 - margin_of_error
                                    mean_error_rate_criterion_2 + margin_of_error_criterion_2)
 confidence_interval_criterion_3 = (mean_error_rate_criterion_3 - margin_of_error_criterion_3,
                                    mean_error_rate_criterion_3 + margin_of_error_criterion_3)
+
+print("Mean of type 1 error (criterion 1):", mean_error_rate_criterion_1)
+print("Confidence interval (criterion 1):", confidence_interval_criterion_1)
+
+print("Mean of type error (criterion 2):", mean_error_rate_criterion_2)
+print("Confidence interval (criterion 2):", confidence_interval_criterion_2)
+
+print("Mean of type error (criterion 3):", mean_error_rate_criterion_3)
+print("Confidenece interval (criterion 3):", confidence_interval_criterion_3)
