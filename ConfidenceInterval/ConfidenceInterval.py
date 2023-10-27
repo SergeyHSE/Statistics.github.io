@@ -211,3 +211,15 @@ mean_error_rate_criterion_3 = np.mean(error_rates_criterion_3)
 std_error_rate_criterion_1 = np.std(error_rates_criterion_1, ddof=1)
 std_error_rate_criterion_2 = np.std(error_rates_criterion_2, ddof=1)
 std_error_rate_criterion_3 = np.std(error_rates_criterion_3, ddof=1)
+
+z_critical = stats.norm.ppf(1 - alpha / 2)
+margin_of_error_criterion_1 = z_critical * (std_error_rate_criterion_1 / np.sqrt(num_simulations))
+margin_of_error_criterion_2 = z_critical * (std_error_rate_criterion_2 / np.sqrt(num_simulations))
+margin_of_error_criterion_3 = z_critical * (std_error_rate_criterion_3 / np.sqrt(num_simulations))
+
+confidence_interval_criterion_1 = (mean_error_rate_criterion_1 - margin_of_error_criterion_1,
+                                   mean_error_rate_criterion_1 + margin_of_error_criterion_1)
+confidence_interval_criterion_2 = (mean_error_rate_criterion_2 - margin_of_error_criterion_2,
+                                   mean_error_rate_criterion_2 + margin_of_error_criterion_2)
+confidence_interval_criterion_3 = (mean_error_rate_criterion_3 - margin_of_error_criterion_3,
+                                   mean_error_rate_criterion_3 + margin_of_error_criterion_3)
