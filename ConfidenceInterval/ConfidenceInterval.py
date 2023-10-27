@@ -108,6 +108,12 @@ plt.plot(sample_sizes, mean_lengths_exact, marker='o', label='Exact')
 plt.xlabel('Size of sample')
 plt.ylabel('Mean lenth of interval')
 plt.legend()
+
+theta = 2 
+num_samples = 100
+alpha = 0.05
+
+sample_sizes = np.arange(0, 101, 10)
 plt.grid()
 plt.tight_layout()
 plt.show()
