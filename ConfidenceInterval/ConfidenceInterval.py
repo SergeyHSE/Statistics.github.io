@@ -195,3 +195,11 @@ for sample_size in sample_sizes:
             errors_criterion_2 += 1
         if crit_3:
             errors_criterion_3 += 1
+
+    error_rate_criterion_1 = errors_criterion_1 / num_simulations
+    error_rate_criterion_2 = errors_criterion_2 / num_simulations
+    error_rate_criterion_3 = errors_criterion_3 / num_simulations
+    
+    error_rates_criterion_1.append(error_rate_criterion_1)
+    error_rates_criterion_2.append(error_rate_criterion_2)
+    error_rates_criterion_3.append(error_rate_criterion_3)
