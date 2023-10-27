@@ -232,3 +232,13 @@ print("Confidence interval (criterion 2):", confidence_interval_criterion_2)
 
 print("Mean of type error (criterion 3):", mean_error_rate_criterion_3)
 print("Confidenece interval (criterion 3):", confidence_interval_criterion_3)
+
+"""
+We are gonna estimate statistic power depending on the value of theta and size of sample
+"""
+
+alpha = 0.05
+num_simulations = 1000
+
+theta_values = [1, 2, 3, 4, 5, 6]  
+sample_sizes = [1, 20, 40, 60, 80, 100]
