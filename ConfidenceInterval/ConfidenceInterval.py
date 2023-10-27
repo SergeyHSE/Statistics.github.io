@@ -101,19 +101,23 @@ plt.xlabel('Size of sample')
 plt.ylabel('Share of coverage')
 plt.legend()
 plt.grid()
-
 plt.subplot(1, 2, 2)
 plt.plot(sample_sizes, mean_lengths_asymptotic, marker='o', label='Asymptotic')
 plt.plot(sample_sizes, mean_lengths_exact, marker='o', label='Exact')
 plt.xlabel('Size of sample')
 plt.ylabel('Mean lenth of interval')
 plt.legend()
+plt.grid()
+plt.tight_layout()
+plt.show()
 
 theta = 2 
 num_samples = 100
 alpha = 0.05
 
 sample_sizes = np.arange(0, 101, 10)
-plt.grid()
-plt.tight_layout()
-plt.show()
+
+coverages_asymptotic = []
+coverages_exact = []
+mean_lengths_asymptotic = []
+mean_lengths_exact = []
