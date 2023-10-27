@@ -203,3 +203,11 @@ for sample_size in sample_sizes:
     error_rates_criterion_1.append(error_rate_criterion_1)
     error_rates_criterion_2.append(error_rate_criterion_2)
     error_rates_criterion_3.append(error_rate_criterion_3)
+
+mean_error_rate_criterion_1 = np.mean(error_rates_criterion_1)
+mean_error_rate_criterion_2 = np.mean(error_rates_criterion_2)
+mean_error_rate_criterion_3 = np.mean(error_rates_criterion_3)
+
+std_error_rate_criterion_1 = np.std(error_rates_criterion_1, ddof=1)
+std_error_rate_criterion_2 = np.std(error_rates_criterion_2, ddof=1)
+std_error_rate_criterion_3 = np.std(error_rates_criterion_3, ddof=1)
