@@ -153,3 +153,12 @@ plt.legend()
 plt.grid()
 plt.tight_layout()
 plt.show()
+
+"""
+Let's define probabolity of type 1 error and build confidance interval
+"""
+
+alpha = 0.05
+num_simulations = 1000
+sample_sizes = range(1, 101, 5) 
+theta = 1
