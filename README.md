@@ -25,4 +25,6 @@ The work presents in both variants: python and excel.
 
 The task for 'ConfidenceInterval' folder:
 1. Generate 20 samples of size 10 and calculate confidence interval borders and check hypotheses.
-2. Visualize confidence interval 
+2. Construct visualizations of confidence intervals as the sample size increases, estimating the proportion of coverage of the parameter by the interval. In addition, estimate and visualize also the average length of each interval as a function of sample size.
+3. For all the criteria under study, estimate the probability of an error of the 1st kind and construct a confidence interval for them depending on the sample size.
+4. Estimate the power of the criteria as a function of theta value and the sample size.
