@@ -242,3 +242,12 @@ num_simulations = 1000
 
 theta_values = [1, 2, 3, 4, 5, 6]  
 sample_sizes = [1, 20, 40, 60, 80, 100]
+
+power_criterion_1 = []
+power_criterion_2 = []
+power_criterion_3 = []
+
+for theta in theta_values:
+    power_criterion_1_theta = []
+    power_criterion_2_theta = []
+    power_criterion_3_theta = []
