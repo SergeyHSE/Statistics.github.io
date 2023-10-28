@@ -22,3 +22,7 @@ The task for 'autocorrelation' folder :
 4. Make regression analysis.
 5. Make prediction.
 The work presents in both variants: python and excel.
+
+The task for 'ConfidenceInterval' folder:
+1. Generate 20 samples of size 10 and calculate confidence interval borders and check hypotheses.
+2. Visualize confidence interval 
