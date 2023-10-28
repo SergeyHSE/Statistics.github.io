@@ -251,3 +251,13 @@ for theta in theta_values:
     power_criterion_1_theta = []
     power_criterion_2_theta = []
     power_criterion_3_theta = []
+
+    for sample_size in sample_sizes:
+        rejections_criterion_1 = 0
+        rejections_criterion_2 = 0
+        rejections_criterion_3 = 0
+
+        for _ in range(num_simulations):
+            data = np.random.exponential(scale=1 / theta, size=sample_size)
+
+            theta_hat = sample_size / np.sum(data)
