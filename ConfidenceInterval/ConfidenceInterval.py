@@ -279,3 +279,10 @@ for theta in theta_values:
             if crit_3:
                 rejections_criterion_3 += 1
 
+        power_criterion_1_theta.append(rejections_criterion_1 / num_simulations)
+        power_criterion_2_theta.append(rejections_criterion_2 / num_simulations)
+        power_criterion_3_theta.append(rejections_criterion_3 / num_simulations)
+
+    power_criterion_1.append(power_criterion_1_theta)
+    power_criterion_2.append(power_criterion_2_theta)
+    power_criterion_3.append(power_criterion_3_theta)
