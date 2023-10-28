@@ -329,3 +329,24 @@ The power of the exact criterion:
 6  0.0  0.0  0.0  0.0  0.0  0.0
 """
 
+fig, axs = plt.subplots(3, figsize=(10, 15))
+for i, n in enumerate(sample_sizes):
+    axs[0].plot(theta_values, power_criterion_1[i], label=f"n = {n}", lw=3)
+axs[0].set_xlabel("Parametr $\\theta$")
+axs[0].set_ylabel("Power")
+axs[0].set_title("The power of the first criterion")
+axs[0].legend()
+for i, n in enumerate(sample_sizes):
+    axs[1].plot(theta_values, power_criterion_2[i], label=f"n = {n}", lw=3)
+axs[1].set_xlabel("Parametr $\\theta$")
+axs[1].set_ylabel("Power")
+axs[1].set_title("The power of the asymptotic criterion")
+axs[1].legend()
+for i, n in enumerate(sample_sizes):
+    axs[2].plot(theta_values, power_criterion_3[i], label=f"n = {n}", lw=3)
+axs[2].set_xlabel("Parametr $\\theta$")
+axs[2].set_ylabel("Power")
+axs[2].set_title("The power of the exact criterion")
+axs[2].legend()
+plt.tight_layout()
+plt.show()
