@@ -286,3 +286,17 @@ for theta in theta_values:
     power_criterion_1.append(power_criterion_1_theta)
     power_criterion_2.append(power_criterion_2_theta)
     power_criterion_3.append(power_criterion_3_theta)
+
+df_criterion_1 = pd.DataFrame(power_criterion_1, columns=sample_sizes, index=theta_values)
+df_criterion_2 = pd.DataFrame(power_criterion_2, columns=sample_sizes, index=theta_values)
+df_criterion_3 = pd.DataFrame(power_criterion_3, columns=sample_sizes, index=theta_values)
+
+print("The power of the first criterion:")
+print(df_criterion_1)
+
+print("\nThe power of the asymptotic criterion:")
+print(df_criterion_2)
+
+print("\nThe power of the exact criterion:")
+print(df_criterion_3)
+
