@@ -261,3 +261,21 @@ for theta in theta_values:
             data = np.random.exponential(scale=1 / theta, size=sample_size)
 
             theta_hat = sample_size / np.sum(data)
+
+            se_1 = theta_hat / np.sqrt(sample_size)
+            se_2 = (2 * theta_hat ** 2) / np.sqrt(sample_size)
+
+            crit_1 = stats.norm.interval(1 - alpha, loc=0, scale=1)[0] <= (theta_hat - theta) / se_1 <= stats.norm.interval(
+                1 - alpha, loc=0, scale=1)[1]
+            crit_2 = stats.norm.interval(1 - alpha, loc=0, scale=1)[0] <= (theta_hat ** 2 - theta ** 2) / se_2 <= stats.norm.interval(
+                1 - alpha, loc=0, scale=1)[1]
+            crit_3 = (1 / stats.gamma.ppf(alpha / 2, sample_size, scale=1 / (sample_size * theta_hat))) <= theta <= (
+                    1 / stats.gamma.ppf(1 - alpha / 2, sample_size, scale=1 / (sample_size * theta_hat)))
+
+            if crit_1:
+                rejections_criterion_1 += 1
+            if crit_2:
+                rejections_criterion_2 += 1
+            if crit_3:
+                rejections_criterion_3 += 1
+
