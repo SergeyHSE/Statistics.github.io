@@ -184,62 +184,58 @@ error_rates_criterion_1 = []
 error_rates_criterion_2 = []
 error_rates_criterion_3 = []
 
-for sample_size in sample_sizes:
-    errors_criterion_1 = 0  
-    errors_criterion_2 = 0  
-    errors_criterion_3 = 0 
-    
-    for _ in range(num_simulations):
-        data = np.random.exponential(scale=1/theta, size=sample_size)
+for _ in range(num_samples):
+    data = np.random.exponential(scale=1/theta, size=sample_size)
+    theta_hat = sample_size / np.sum(data)
 
-        theta_hat = sample_size / np.sum(data)
+    se_1 = theta_hat / np.sqrt(sample_size)
+    ci_1 = (theta_hat - stats.norm.ppf(1 - alpha/2) * se_1, theta_hat + stats.norm.ppf(1 - alpha/2) * se_1)
 
-        se_1 = theta_hat / np.sqrt(sample_size)
-        se_2 = (2 * theta_hat**2) / np.sqrt(sample_size)
+    se_2 = (2 * theta_hat**2) / np.sqrt(sample_size)
+    ci_2 = (theta_hat**2 - stats.norm.ppf(1 - alpha/2) * se_2, theta_hat**2 + stats.norm.ppf(1 - alpha/2) * se_2)
+
+    lower_gamma = stats.gamma.ppf(alpha/2, sample_size, scale=1/theta_hat)
+    upper_gamma = stats.gamma.ppf(1 - alpha/2, sample_size, scale=1/theta_hat)
+    ci_3 = (sample_size / upper_gamma, sample_size / lower_gamma)
+
+    crit_1 = stats.norm.interval(1 - alpha, loc=0, scale=1)[0] <= (theta_hat - theta) / se_1 <= stats.norm.interval(1 - alpha, loc=0, scale=1)[1]
+    crit_2 = stats.norm.interval(1 - alpha, loc=0, scale=1)[0] <= (theta_hat**2 - theta**2) / se_2 <= stats.norm.interval(1 - alpha, loc=0, scale=1)[1]
+    crit_3 = ci_3[0] <= theta <= ci_3[1]
         
-        crit_1 = stats.norm.interval(1 - alpha, loc=0, scale=1)[0] <= (theta_hat - theta) / se_1 <= stats.norm.interval(1 - alpha, loc=0, scale=1)[1]
-        crit_2 = stats.norm.interval(1 - alpha, loc=0, scale=1)[0] <= (theta_hat**2 - theta**2) / se_2 <= stats.norm.interval(1 - alpha, loc=0, scale=1)[1]
+    if not crit_1:
+        error_rates_criterion_1.append(1)
+    else:
+        error_rates_criterion_1.append(0)
 
-        a = sample_size
-        scale = 1 / (sample_size * theta_hat)
-        left_exact = stats.gamma.ppf(alpha/2, a, scale=scale)
-        right_exact = stats.gamma.ppf(1 - alpha/2, a, scale=scale)
-        crit_3 = left_exact <= theta <= right_exact
-        
-        if crit_1:
-            errors_criterion_1 += 1
-        if crit_2:
-            errors_criterion_2 += 1
-        if crit_3:
-            errors_criterion_3 += 1
+    if not crit_2:
+        error_rates_criterion_2.append(1)
+    else:
+        error_rates_criterion_2.append(0)
 
-    error_rate_criterion_1 = errors_criterion_1 / num_simulations
-    error_rate_criterion_2 = errors_criterion_2 / num_simulations
-    error_rate_criterion_3 = errors_criterion_3 / num_simulations
-    
-    error_rates_criterion_1.append(error_rate_criterion_1)
-    error_rates_criterion_2.append(error_rate_criterion_2)
-    error_rates_criterion_3.append(error_rate_criterion_3)
+    if not crit_3:
+        error_rates_criterion_3.append(1)
+    else:
+        error_rates_criterion_3.append(0)
 
-mean_error_rate_criterion_1 = np.mean(error_rates_criterion_1)
-mean_error_rate_criterion_2 = np.mean(error_rates_criterion_2)
-mean_error_rate_criterion_3 = np.mean(error_rates_criterion_3)
+error_rate_criterion_1 = np.mean(error_rates_criterion_1)
+error_rate_criterion_2 = np.mean(error_rates_criterion_2)
+error_rate_criterion_3 = np.mean(error_rates_criterion_3)
 
 std_error_rate_criterion_1 = np.std(error_rates_criterion_1, ddof=1)
 std_error_rate_criterion_2 = np.std(error_rates_criterion_2, ddof=1)
 std_error_rate_criterion_3 = np.std(error_rates_criterion_3, ddof=1)
 
 z_critical = stats.norm.ppf(1 - alpha / 2)
-margin_of_error_criterion_1 = z_critical * (std_error_rate_criterion_1 / np.sqrt(num_simulations))
-margin_of_error_criterion_2 = z_critical * (std_error_rate_criterion_2 / np.sqrt(num_simulations))
-margin_of_error_criterion_3 = z_critical * (std_error_rate_criterion_3 / np.sqrt(num_simulations))
+margin_of_error_criterion_1 = z_critical * (std_error_rate_criterion_1 / np.sqrt(num_samples))
+margin_of_error_criterion_2 = z_critical * (std_error_rate_criterion_2 / np.sqrt(num_samples))
+margin_of_error_criterion_3 = z_critical * (std_error_rate_criterion_3 / np.sqrt(num_samples))
 
-confidence_interval_criterion_1 = (mean_error_rate_criterion_1 - margin_of_error_criterion_1,
-                                   mean_error_rate_criterion_1 + margin_of_error_criterion_1)
-confidence_interval_criterion_2 = (mean_error_rate_criterion_2 - margin_of_error_criterion_2,
-                                   mean_error_rate_criterion_2 + margin_of_error_criterion_2)
-confidence_interval_criterion_3 = (mean_error_rate_criterion_3 - margin_of_error_criterion_3,
-                                   mean_error_rate_criterion_3 + margin_of_error_criterion_3)
+confidence_interval_criterion_1 = (error_rate_criterion_1 - margin_of_error_criterion_1,
+                                   error_rate_criterion_1 + margin_of_error_criterion_1)
+confidence_interval_criterion_2 = (error_rate_criterion_2 - margin_of_error_criterion_2,
+                                   error_rate_criterion_2 + margin_of_error_criterion_2)
+confidence_interval_criterion_3 = (error_rate_criterion_3 - margin_of_error_criterion_3,
+                                   error_rate_criterion_3 + margin_of_error_criterion_3)
 
 print("Mean of type 1 error (criterion 1):", mean_error_rate_criterion_1)
 print("Confidence interval (criterion 1):", confidence_interval_criterion_1)
