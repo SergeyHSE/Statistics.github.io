@@ -23,11 +23,12 @@ def confidence_experiment(theta, sample_size=10, num_samples=20, alpha=0.05):
         se_2 = (2 * theta_hat**2) / np.sqrt(sample_size)
         ci_2 = (theta_hat**2 - stats.norm.ppf(1 - alpha/2) * se_2, theta_hat**2 + stats.norm.ppf(1 - alpha/2) * se_2)
         
-        # The exact confidence interval (based on gamma distribution)
-        a = sample_size
-        scale = 1 / (sample_size * theta_hat)
-        ci_3 = (stats.gamma.ppf(alpha/2, a, scale=scale), stats.gamma.ppf(1 - alpha/2, a, scale=scale))
-       # Results
+        # Exact confidence interval (using gamma distribution)
+        lower_gamma = stats.gamma.ppf(alpha/2, sample_size, scale=1/theta_hat)
+        upper_gamma = stats.gamma.ppf(1 - alpha/2, sample_size, scale=1/theta_hat)
+        ci_3 = (sample_size / upper_gamma, sample_size / lower_gamma)
+        
+        # Results
         crit_1 = stats.norm.interval(1 - alpha, loc=0, scale=1)[0] <= (theta_hat - theta) / se_1 <= stats.norm.interval(1 - alpha, loc=0, scale=1)[1]
         crit_2 = stats.norm.interval(1 - alpha, loc=0, scale=1)[0] <= (theta_hat**2 - theta**2) / se_2 <= stats.norm.interval(1 - alpha, loc=0, scale=1)[1]
         crit_3 = ci_3[0] <= theta <= ci_3[1]
