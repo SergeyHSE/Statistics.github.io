@@ -154,22 +154,23 @@ for sample_size in sample_sizes:
 
 plt.figure(figsize=(14, 6))
 plt.subplot(1, 2, 1)
-plt.plot(sample_sizes, coverages_asymptotic, marker='o', label='Asymtotic')
+plt.plot(sample_sizes, coverages_asymptotic_1, marker='o', label='Asymptotic 1')
+plt.plot(sample_sizes, coverages_asymptotic_2, marker='o', label='Asymptotic 2')
 plt.plot(sample_sizes, coverages_exact, marker='o', label='Exact')
-plt.xlabel('Size of sample')
-plt.ylabel('Share of coverage')
+plt.xlabel('Sample Size')
+plt.ylabel('Coverage Proportion')
 plt.legend()
 plt.grid()
 plt.subplot(1, 2, 2)
-plt.plot(sample_sizes, mean_lengths_asymptotic, marker='o', label='Asymptotic')
+plt.plot(sample_sizes, mean_lengths_asymptotic_1, marker='o', label='Asymptotic 1')
+plt.plot(sample_sizes, mean_lengths_asymptotic_2, marker='o', label='Asymptotic 2')
 plt.plot(sample_sizes, mean_lengths_exact, marker='o', label='Exact')
-plt.xlabel('Size of sample')
-plt.ylabel('Mean lenth of interval')
+plt.xlabel('Sample Size')
+plt.ylabel('Mean Length of Interval')
 plt.legend()
 plt.grid()
 plt.tight_layout()
 plt.show()
-
 """
 Let's define probabolity of type 1 error and build confidance interval
 """
