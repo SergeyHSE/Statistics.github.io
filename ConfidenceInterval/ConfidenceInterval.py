@@ -67,31 +67,38 @@ In the next step we are gonna show the relationship berween confidance interval 
 Also we need estimate share of interval coverage.
 """
 
+import matplotlib.pyplot as plt
+
 theta = 1  
 num_samples = 100
 alpha = 0.05
-
 sample_sizes = np.arange(0, 101, 10)
 
-coverages_asymptotic = []
-coverages_exact = []
-mean_lengths_asymptotic = []
-mean_lengths_exact = []
+coverages_asymptotic_1 = []  # To store coverage proportions for the first asymptotic interval
+coverages_asymptotic_2 = []  # To store coverage proportions for the second asymptotic interval
+coverages_exact = []  # To store coverage proportions for the exact interval
+mean_lengths_asymptotic_1 = []  # To store mean lengths for the first asymptotic interval
+mean_lengths_asymptotic_2 = []  # To store mean lengths for the second asymptotic interval
+mean_lengths_exact = []  # To store mean lengths for the exact interval
 
 # we are gonna provide experiments for different sizes of samples
 for sample_size in sample_sizes:
     results = confidence_experiment(theta, sample_size, num_samples, alpha)
     
     # Calculate share of interval coverage and mean lenth of intervals
-    coverage_asymptotic = sum([1 for res in results if res[0][0] <= theta <= res[0][1]]) / num_samples
+    coverage_asymptotic_1 = sum([1 for res in results if res[0][0] <= theta <= res[0][1]]) / num_samples
+    coverage_asymptotic_2 = sum([1 for res in results if res[1][0] <= theta**2 <= res[1][1]]) / num_samples
     coverage_exact = sum([1 for res in results if res[2][0] <= theta <= res[2][1]]) / num_samples
 
-    mean_length_asymptotic = np.mean([res[0][1] - res[0][0] for res in results])
+    mean_length_asymptotic_1 = np.mean([res[0][1] - res[0][0] for res in results])
+    mean_length_asymptotic_2 = np.mean([res[1][1] - res[1][0] for res in results])
     mean_length_exact = np.mean([res[2][1] - res[2][0] for res in results])
- 
-    coverages_asymptotic.append(coverage_asymptotic)
+
+    coverages_asymptotic_1.append(coverage_asymptotic_1)
+    coverages_asymptotic_2.append(coverage_asymptotic_2)
     coverages_exact.append(coverage_exact)
-    mean_lengths_asymptotic.append(mean_length_asymptotic)
+    mean_lengths_asymptotic_1.append(mean_length_asymptotic_1)
+    mean_lengths_asymptotic_2.append(mean_length_asymptotic_2)
     mean_lengths_exact.append(mean_length_exact)
     
 plt.figure(figsize=(14, 6))
