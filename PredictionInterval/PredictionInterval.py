@@ -111,3 +111,18 @@ square for mean prices. And do the same with prediction intervals.
 """
 unique_areas = X_train['totsp'].unique()
 unique_areas
+
+confidence_intervals = []
+prediction_intervals = []
+
+fixed_params = {
+    'const': 1,
+    'livesp': 52,
+    'kitsp': 10,
+    'dist': 12,
+    'metrdist': 2,
+    'walk': 1,
+    'brick': 0,
+    'floor': 10,
+    'code': 6
+}
