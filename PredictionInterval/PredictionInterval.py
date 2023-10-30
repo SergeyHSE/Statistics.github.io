@@ -59,3 +59,17 @@ Skew:                           2.007   Prob(JB):                         0.00
 Kurtosis:                      15.150   Cond. No.                         796.
 ==============================================================================
 """
+
+# Conduct White test to check data for heteroscedastisity
+
+from statsmodels.sandbox.regression.predstd import wls_prediction_std
+from statsmodels.stats.diagnostic import het_white
+
+model = sm.OLS(y_train, X_train)
+results = model.fit()
+
+test_white = het_white(results.resid, exog=results.model.exog)
+print("LM Statistic:", test_white[0])
+print("LM-Test p-value:", test_white[1])
+print("F-Statistic:", test_white[2])
+print("F-Test p-value:", test_white[3])
