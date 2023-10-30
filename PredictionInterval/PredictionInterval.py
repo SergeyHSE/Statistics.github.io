@@ -11,3 +11,7 @@ df_houseprice.head()
 
 df_houseprice = df_houseprice.drop('n', axis=1)
 df_houseprice
+
+X = df_houseprice.drop('price', axis=1)
+y = df_houseprice['price']
+X.shape, y.shape
