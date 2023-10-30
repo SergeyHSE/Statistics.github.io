@@ -73,3 +73,12 @@ print("LM Statistic:", test_white[0])
 print("LM-Test p-value:", test_white[1])
 print("F-Statistic:", test_white[2])
 print("F-Test p-value:", test_white[3])
+"""
+LM Statistic: 578.1689402413548
+LM-Test p-value: 1.9775242608269496e-90
+F-Statistic: 16.996937351321954
+F-Test p-value: 3.947617458433537e-115
+"""
+
+# We need to set desired signs for our ideal flat
+
