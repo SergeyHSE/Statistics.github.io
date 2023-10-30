@@ -15,3 +15,14 @@ df_houseprice
 X = df_houseprice.drop('price', axis=1)
 y = df_houseprice['price']
 X.shape, y.shape
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+X_train = sm.add_constant(X_train)
+model = sm.OLS(y_train, X_train).fit()
+
+X_test = sm.add_constant(X_test)
+y_pred = model.predict(X_test)
+r_2 = r2_score(y_test, y_pred)
+print(f'R2: {r_2}')
+
