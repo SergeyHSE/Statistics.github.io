@@ -104,3 +104,10 @@ prediction_interval = results.get_prediction(X_type_apartment).conf_int(obs=True
 
 print(f'Prediction interval for our apartment: ({prediction_interval[0][0]}, {prediction_interval[0][1]})')
 # Prediction interval for our apartment: (122.70390678899444, 246.69548385605026)
+
+"""
+Fix our parametrs of flat (except square) and build confidence interval for every values of
+square for mean prices. And do the same with prediction intervals.
+"""
+unique_areas = X_train['totsp'].unique()
+unique_areas
