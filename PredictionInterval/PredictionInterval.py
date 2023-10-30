@@ -82,3 +82,19 @@ F-Test p-value: 3.947617458433537e-115
 
 # We need to set desired signs for our ideal flat
 
+results = model.fit(cov_type='HC3')
+
+# Our type of apartment
+our_type_apartment = {
+    'const' : 1, 
+    'totsp' : 63,
+    'livesp' : 52,
+    'kitsp' : 10,
+    'dist' : 12,
+    'metrdist' : 2,
+    'walk' : 1,
+    'brick' : 0,
+    'floor' : 10,
+    'code' : 6
+}
+
