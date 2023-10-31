@@ -148,3 +148,17 @@ plt.ylabel('Apartment area')
 plt.title('Confidence interval for apartment price depending on apartment area')
 plt.legend(loc='upper left')
 plt.show()
+
+prediction_intervals = []
+
+fixed_params = {
+    'const': 1,
+    'livesp': 52,
+    'kitsp': 10,
+    'dist': 12,
+    'metrdist': 2,
+    'walk': 1,
+    'brick': 0,
+    'floor': 10,
+    'code': 6
+}
