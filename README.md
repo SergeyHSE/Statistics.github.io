@@ -28,3 +28,9 @@ The task for 'ConfidenceInterval' folder:
 2. Construct visualizations of confidence intervals as the sample size increases, estimating the proportion of coverage of the parameter by the interval. In addition, estimate and visualize also the average length of each interval as a function of sample size.
 3. For all the criteria under study, estimate the probability of an error of the 1st kind and construct a confidence interval for them depending on the sample size.
 4. Estimate the power of the criteria as a function of theta value and the sample size.
+
+The task for 'PredictionInterval' folder:
+1. Train linear model to predict the apartment price from all other parametrs.
+2. Test hypotheses about the insignificance of features and build confidence intervals for model coef.
+3. Determine the signs of the apartment you want for yourself in city and build a predictive range of its price.
+4. Fix all parameters except for the area of the apartment and construct a confidence band for the price of the apartment. In other words, for each value of apartment area, construct a confidence interval for the mean value of apartment price. Similarly, construct a prediction tape.
