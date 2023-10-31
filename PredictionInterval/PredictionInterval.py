@@ -140,3 +140,11 @@ for area in unique_areas:
 df_intervals = pd.DataFrame(confidence_intervals, columns=['Lower', 'Upper'])
 df_intervals['totsp'] = unique_areas
 print(df_intervals)
+
+plt.figure(figsize=(10, 6))
+plt.hlines(y=df_intervals['totsp'], xmin=df_intervals['Lower'], xmax=df_intervals['Upper'], color='blue', alpha=0.6, linewidth=2, label='Доверительный интервал')
+plt.xlabel('Apartment price ($1000)')
+plt.ylabel('Apartment area')
+plt.title('Confidence interval for apartment price depending on apartment area')
+plt.legend(loc='upper left')
+plt.show()
