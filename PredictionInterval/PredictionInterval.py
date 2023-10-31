@@ -126,3 +126,15 @@ fixed_params = {
     'floor': 10,
     'code': 6
 }
+
+for area in unique_areas:
+
+    fixed_params['totsp'] = area
+
+    params = [fixed_params[feature] for feature in X_train.columns]
+
+    price_pred_ci = results.get_prediction(params).conf_int()
+
+    confidence_intervals.append((price_pred_ci[0][0], price_pred_ci[0][1]))
+
+
