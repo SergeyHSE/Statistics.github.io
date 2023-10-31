@@ -162,3 +162,19 @@ fixed_params = {
     'floor': 10,
     'code': 6
 }
+
+for area in unique_areas:
+
+    fixed_params['totsp'] = area
+    
+    params = [fixed_params[feature] for feature in X_train.columns]
+    
+    prediction_pred_ci = results.get_prediction(params).conf_int(obs=True)
+
+    prediction_intervals.append((prediction_pred_ci[0][0], prediction_pred_ci[0][1]))
+
+df_intervals_pred = pd.DataFrame(prediction_intervals, columns=['Lower', 'Upper'])
+
+df_intervals_pred['totsp'] = unique_areas
+
+print(df_intervals_pred)
