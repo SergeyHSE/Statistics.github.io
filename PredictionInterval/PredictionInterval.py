@@ -178,3 +178,12 @@ df_intervals_pred = pd.DataFrame(prediction_intervals, columns=['Lower', 'Upper'
 df_intervals_pred['totsp'] = unique_areas
 
 print(df_intervals_pred)
+
+plt.figure(figsize=(10, 6))
+plt.hlines(y=df_intervals_pred['totsp'], xmin=df_intervals_pred['Lower'], xmax=df_intervals_pred['Upper'], color='blue', alpha=0.6, linewidth=2, label='Prediction interval')
+plt.xlabel('Apartment price ($1000)')
+plt.ylabel('Apartment area')
+plt.title('Prediction intervals for aprtment price depending on apartment area')
+plt.legend(loc='upper left')
+plt.show()
+
