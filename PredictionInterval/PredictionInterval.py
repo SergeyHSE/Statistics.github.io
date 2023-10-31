@@ -137,4 +137,6 @@ for area in unique_areas:
 
     confidence_intervals.append((price_pred_ci[0][0], price_pred_ci[0][1]))
 
-
+df_intervals = pd.DataFrame(confidence_intervals, columns=['Lower', 'Upper'])
+df_intervals['totsp'] = unique_areas
+print(df_intervals)
