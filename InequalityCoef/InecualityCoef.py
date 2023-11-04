@@ -51,6 +51,15 @@ def lorenz_curve_gini(data, columnName=None):
 
     return gini_coef
 
+gini_2018 = lorenz_curve_gini(data, '2018')
+print(f'Gini coef for 2018: {gini_2018}')
+
+gini_2020 = lorenz_curve_gini(data, '2020')
+print(f'Gini coef for 2020: {gini_2020}')
+
+gini_2022 = lorenz_curve_gini(data, '2022')
+print(f'Gini coef for 2022: {gini_2022}')
+
 """
 Interval method
 """
