@@ -48,4 +48,10 @@ def lorenz_curve_gini(data, columnName=None):
     plt.legend()
     plt.show()
 
-    
+
+    return gini_coef
+
+"""
+Interval method
+"""
+
