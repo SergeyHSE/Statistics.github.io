@@ -10,3 +10,9 @@ data = pd.read_excel(path)
 data.head()
 data = data.drop('Unnamed: 1', axis=1)
 data.head()
+
+data['Регион'] = data['Регион'].str.strip()
+data
+data.to_excel('DataGini.xlsx')
+pd.set_option('display.max_rows', None)
+data
