@@ -41,4 +41,11 @@ def lorenz_curve_gini(data, columnName=None):
     plt.xlabel('Cumulative % of Population', fontsize=14)
     plt.ylabel(f'Cumulative % of {columnName} Income', fontsize=14)
     plt.title(f'Lorenz Curve for {columnName}', fontsize=18)
+    plt.grid()
+    plt.gca().set_aspect('equal')
+    gini_coef = 2 * (0.5 - np.trapz(cumulative_income, cumulative_population))
+    plt.text(0.6, 0.25, f'Gini coef: {gini_coef:.3f}', fontsize=16, color='darkblue')
+    plt.legend()
+    plt.show()
+
     
