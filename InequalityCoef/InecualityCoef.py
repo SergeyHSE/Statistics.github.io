@@ -92,3 +92,7 @@ def interval_lorenz_curve_gini(data, columnName=None):
     relative_values = share_popul * sums
     cumulative_values = np.cumsum((relative_values / sum(relative_values)))
     palma_ratio = (cumulative_values[-1] - cumulative_values[-2]) / cumulative_values[3]        
+    new_array = [cumulative_values[0]]
+    for i in range(1, len(cumulative_values)):
+        new_array.append(cumulative_values[i] + cumulative_values[i - 1])
+        
