@@ -103,4 +103,8 @@ def interval_lorenz_curve_gini(data, columnName=None):
              color='tab:red', linewidth=2.0)
     plt.plot([0, 1], [0, 1], 'k--', label='Equality Line',
              linewidth=2.0, color='tab:green')
-    
+    plt.xlabel('Cumulative % of Population', fontsize=14)
+    plt.ylabel(f'Cumulative % of {columnName} Income', fontsize=14)
+    plt.title(f'Lorenz Curve for {columnName} (interval)', fontsize=18)
+    plt.grid()
+
