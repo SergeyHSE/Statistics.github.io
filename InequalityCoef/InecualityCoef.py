@@ -83,5 +83,10 @@ def interval_lorenz_curve_gini(data, columnName=None):
     cumulative_share = np.cumsum(share_popul)
     sums = []
     start_ind = 0 
-
-
+    for count in result_list:
+        end_ind = start_ind + count
+        subset = np.array(sorted_data)[start_ind: end_ind]
+        decile_sum = np.sum(subset)
+        sums.append(decile_sum)
+        start_ind = end_ind
+        
