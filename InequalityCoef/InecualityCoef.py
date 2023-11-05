@@ -80,4 +80,8 @@ def interval_lorenz_curve_gini(data, columnName=None):
     custom_percent_rank = np.arange(1, n + 1) / n
     result_list, _ = np.histogram(custom_percent_rank, bins=10)
     share_popul = result_list / n
-    
+    cumulative_share = np.cumsum(share_popul)
+    sums = []
+    start_ind = 0 
+
+
