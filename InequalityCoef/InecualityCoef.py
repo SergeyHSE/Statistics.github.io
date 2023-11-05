@@ -97,3 +97,10 @@ def interval_lorenz_curve_gini(data, columnName=None):
         new_array.append(cumulative_values[i] + cumulative_values[i - 1])
     share_income_values = new_array * share_popul
     interval_gini_coef = 1 - sum(share_income_values)          
+
+    plt.figure(figsize=(8, 8), dpi=90)
+    plt.plot(cumulative_share, cumulative_values, label='Lorenz curve',
+             color='tab:red', linewidth=2.0)
+    plt.plot([0, 1], [0, 1], 'k--', label='Equality Line',
+             linewidth=2.0, color='tab:green')
+    
