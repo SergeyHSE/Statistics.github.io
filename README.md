@@ -34,3 +34,7 @@ The task for 'PredictionInterval' folder:
 2. Test hypotheses about the insignificance of features and build confidence intervals for model coef.
 3. Determine the signs of the apartment you want for yourself in city and build a predictive range of its price.
 4. Fix all parameters except for the area of the apartment and construct a confidence band for the price of the apartment. In other words, for each value of apartment area, construct a confidence interval for the mean value of apartment price. Similarly, construct a prediction tape.
+
+The task for 'InequalityCoef' folder:
+1. Build Lorenz curve and calculate Gini coef based on the data using two methods (inteval and point).
+2. Calculate Palma rate and Herfindahl-Hirschman Index.
