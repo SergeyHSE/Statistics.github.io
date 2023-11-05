@@ -95,4 +95,5 @@ def interval_lorenz_curve_gini(data, columnName=None):
     new_array = [cumulative_values[0]]
     for i in range(1, len(cumulative_values)):
         new_array.append(cumulative_values[i] + cumulative_values[i - 1])
-        
+    share_income_values = new_array * share_popul
+    interval_gini_coef = 1 - sum(share_income_values)          
