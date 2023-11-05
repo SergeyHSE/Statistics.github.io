@@ -89,4 +89,6 @@ def interval_lorenz_curve_gini(data, columnName=None):
         decile_sum = np.sum(subset)
         sums.append(decile_sum)
         start_ind = end_ind
-        
+    relative_values = share_popul * sums
+    cumulative_values = np.cumsum((relative_values / sum(relative_values)))
+    palma_ratio = (cumulative_values[-1] - cumulative_values[-2]) / cumulative_values[3]        
