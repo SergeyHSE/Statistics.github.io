@@ -108,3 +108,11 @@ def interval_lorenz_curve_gini(data, columnName=None):
     plt.title(f'Lorenz Curve for {columnName} (interval)', fontsize=18)
     plt.grid()
 
+    plt.gca().set_aspect('equal')
+    plt.text(0.49, 0.09,
+             f'Gini coef(interval): {interval_gini_coef:.3f}\nPalma ratio: {palma_ratio:.3f}',
+             fontsize=16, color='darkblue')
+    plt.legend()
+    plt.show()
+
+    return interval_gini_coef, palma_ratio
