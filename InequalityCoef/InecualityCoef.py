@@ -116,3 +116,10 @@ def interval_lorenz_curve_gini(data, columnName=None):
     plt.show()
 
     return interval_gini_coef, palma_ratio
+
+
+gini_interval_2018 = interval_lorenz_curve_gini(data, '2018')
+
+gini_interval_2020 = interval_lorenz_curve_gini(data, '2020')
+
+gini_interval_2022 = interval_lorenz_curve_gini(data, '2022')
