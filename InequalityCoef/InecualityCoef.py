@@ -123,3 +123,13 @@ gini_interval_2018 = interval_lorenz_curve_gini(data, '2018')
 gini_interval_2020 = interval_lorenz_curve_gini(data, '2020')
 
 gini_interval_2022 = interval_lorenz_curve_gini(data, '2022')
+
+class HHI:
+    @classmethod
+    def common_hhi(cls, data, columnName=None):
+        if isinstance(data, (list, np.ndarray)):
+            data = np.array(data)
+            total = data.sum()
+            squared_market_shares = [(100 * (i / total)) for i in data]
+            hhi = sum(x**2 for x in squared_market_shares)    
+            return hhi
