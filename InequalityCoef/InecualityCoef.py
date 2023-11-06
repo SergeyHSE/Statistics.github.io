@@ -133,3 +133,15 @@ class HHI:
             squared_market_shares = [(100 * (i / total)) for i in data]
             hhi = sum(x**2 for x in squared_market_shares)    
             return hhi
+        elif isinstance(data, pd.DataFrame):
+            if columnName is not None:
+                data = data[columnName]
+                data = np.array(data)
+                total = data.sum()
+                squared_market_shares = [(100 * (i / total)) for i in data]
+                hhi = sum(x**2 for x in squared_market_shares)    
+                return hhi
+            else:
+                raise ValueError("If data is a DataFrame, columnName must be specified.")
+        else:
+            raise ValueError("data should be a DataFrame, list, or NumPy array.")
