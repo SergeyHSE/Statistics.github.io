@@ -158,3 +158,8 @@ class HHI:
         else:
             raise ValueError("data should be a DataFrame, list, or NumPy array.")
             
+        n = len(data)
+        custom_percent_rank = np.arange(1, n + 1) / n
+        result_list, _ = np.histogram(custom_percent_rank, bins=10)
+        sums = []
+        start_ind = 0 
