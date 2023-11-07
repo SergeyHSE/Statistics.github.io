@@ -163,3 +163,9 @@ class HHI:
         result_list, _ = np.histogram(custom_percent_rank, bins=10)
         sums = []
         start_ind = 0 
+        for count in result_list:
+            end_ind = start_ind + count
+            subset = np.array(data)[start_ind: end_ind]
+            decile_sum = np.sum(subset)
+            sums.append(decile_sum)
+            start_ind = end_ind
