@@ -176,3 +176,12 @@ class HHI:
         
         return hhi_interval
         
+    
+hhi_2018 = HHI.common_hhi(data, '2018')
+print(f'Herfindahl-Hirschman Index (HHI) for 2018: {hhi_2018:.2f}')
+
+hhi_2020 = HHI.common_hhi(data, '2020')
+print(f'Herfindahl-Hirschman Index (HHI) for 2020: {hhi_2020:.2f}')
+
+hhi_2022 = HHI.common_hhi(data, '2022')
+print(f'Herfindahl-Hirschman Index (HHI) for 2022: {hhi_2022:.2f}')
