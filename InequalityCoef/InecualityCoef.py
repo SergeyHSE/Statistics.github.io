@@ -169,3 +169,10 @@ class HHI:
             decile_sum = np.sum(subset)
             sums.append(decile_sum)
             start_ind = end_ind
+        data = np.array(sums)
+        total = data.sum()
+        squared_market_shares = [(100 * (i / total)) for i in data]
+        hhi_interval = sum(x**2 for x in squared_market_shares)
+        
+        return hhi_interval
+        
