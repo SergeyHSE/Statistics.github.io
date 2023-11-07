@@ -185,3 +185,12 @@ print(f'Herfindahl-Hirschman Index (HHI) for 2020: {hhi_2020:.2f}')
 
 hhi_2022 = HHI.common_hhi(data, '2022')
 print(f'Herfindahl-Hirschman Index (HHI) for 2022: {hhi_2022:.2f}')
+
+hhi_interval_2018 = HHI.interval_hhi(data, '2018')
+print(f'Herfindahl-Hirschman Index (HHI interval) for 2018: {hhi_interval_2018:.2f}')
+
+hhi_interval_2020 = HHI.interval_hhi(data, '2020')
+print(f'Herfindahl-Hirschman Index (HHI interval) for 2020: {hhi_interval_2020:.2f}')
+
+hhi_interval_2022 = HHI.interval_hhi(data, '2022')
+print(f'Herfindahl-Hirschman Index (HHI interval) for 2022: {hhi_interval_2022:.2f}')
