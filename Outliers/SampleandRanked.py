@@ -16,7 +16,6 @@ import os
 pd.set_option('display.max_columns', None)
 
 path = r"Your path.xlsx"
-path = path.replace('\\', '/')
 
 data = pd.read_excel(path, sheet_name='2')
 data.head()
